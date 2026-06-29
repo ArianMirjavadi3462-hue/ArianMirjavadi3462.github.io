@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>بستنی جعفرنژاد</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   DESIGN SYSTEM — "Frozen Luxury"
+   Berry Noir #0D0510 · Iridescent accents · Liquid glass surfaces
+================================================================ */
+:root{
+  --ink:    #0D0510;
+  --ink2:   #160C1E;
+  --ink3:   #1F1228;
+  --ink4:   #2A1835;
+  --ink5:   #361F42;
+
+  --gold:   #E8B86D;
+  --gold2:  #F5D08A;
+  --goldDeep:#C48B30;
+
+  --rose:   #F0A0B8;
+  --rose2:  #FAC8D8;
+  --roseDeep:#C04070;
+
+  --mint:   #7EECD4;
+  --mintDeep:#2BAA8A;
+
+  --lav:    #C8A8F8;
+  --lav2:   #E0D0FF;
+  --lavDeep:#7040C0;
+
+  --sky:    #88D4F8;
+  --cream:  #FFF4E8;
+
+  --t1: rgba(255,244,232,1);
+  --t2: rgba(255,244,232,0.6);
+  --t3: rgba(255,244,232,0.3);
+  --t4: rgba(255,244,232,0.12);
+
+  --bdr: rgba(232,184,109,0.15);
+  --bdr2: rgba(232,184,109,0.3);
+  --bdr3: rgba(232,184,109,0.5);
+
+  --glass: rgba(255,244,232,0.04);
+  --glass2: rgba(255,244,232,0.08);
+  --glass3: rgba(255,244,232,0.13);
+
+  --r-pill: 9999px;
+  --r-2xl: 32px;
+  --r-xl: 24px;
+  --r-lg: 18px;
+  --r-md: 12px;
+
+  --glow-gold: 0 0 40px rgba(232,184,109,0.2);
+  --glow-rose: 0 0 40px rgba(240,160,184,0.2);
+  --glow-lav:  0 0 40px rgba(200,168,248,0.2);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',sans-serif;background:var(--ink);color:var(--t1);min-height:100vh;overflow-x:hidden}
+
+/* ── AMBIENT CANVAS ───────────────────────────────── */
+#ambient{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:0.22}
+.orb1{width:600px;height:600px;background:radial-gradient(circle,#7040C0,transparent 65%);top:-200px;right:-180px;animation:o1 16s ease-in-out infinite alternate}
+.orb2{width:500px;height:500px;background:radial-gradient(circle,#C04070,transparent 65%);bottom:-160px;left:-160px;animation:o2 20s ease-in-out infinite alternate}
+.orb3{width:350px;height:350px;background:radial-gradient(circle,#C48B30,transparent 65%);top:45%;left:35%;animation:o3 14s ease-in-out infinite alternate}
+.orb4{width:250px;height:250px;background:radial-gradient(circle,#2BAA8A,transparent 65%);top:20%;left:10%;animation:o4 18s ease-in-out infinite alternate}
+@keyframes o1{to{transform:translate(-60px,80px) scale(1.1)}}
+@keyframes o2{to{transform:translate(80px,-60px) scale(1.15)}}
+@keyframes o3{to{transform:translate(-50px,70px) scale(0.85)}}
+@keyframes o4{to{transform:translate(40px,-40px) scale(1.2)}}
+
+/* noise overlay */
+#ambient::after{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:0.025;pointer-events:none;
+}
+
+/* ── SPLASH ───────────────────────────────────────── */
+#splash{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.sp-halo{
+  position:relative;width:180px;height:180px;
+  display:flex;align-items:center;justify-content:center;
+}
+.sp-ring1,.sp-ring2{
+  position:absolute;inset:0;border-radius:50%;
+  background:transparent;
+}
+.sp-ring1{
+  border:1.5px solid transparent;
+  background:linear-gradient(var(--ink),var(--ink)) padding-box,
+             linear-gradient(135deg,var(--gold2),var(--rose),var(--lav),var(--mint),var(--gold2)) border-box;
+  animation:spinR 3s linear infinite;
+}
+.sp-ring2{
+  inset:14px;
+  border:1px solid transparent;
+  background:linear-gradient(var(--ink),var(--ink)) padding-box,
+             linear-gradient(225deg,var(--lav2),var(--rose2),var(--gold2)) border-box;
+  animation:spinR 5s linear infinite reverse;
+}
+@keyframes spinR{to{transform:rotate(360deg)}}
+.sp-ice{
+  font-size:70px;position:relative;z-index:1;
+  animation:iceIn 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.4s both;
+  filter:drop-shadow(0 0 30px rgba(232,184,109,0.5));
+}
+@keyframes iceIn{from{transform:scale(0) rotate(-30deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.sp-wordmark{
+  margin-top:22px;
+  font-size:44px;font-weight:900;letter-spacing:-2px;
+  background:linear-gradient(135deg,var(--gold2) 0%,var(--rose2) 40%,var(--lav2) 70%,var(--gold2) 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 2.5s linear infinite,fadeUp 0.6s 0.6s ease both;
+}
+@keyframes shimmer{to{background-position:-200% center}}
+.sp-en{font-size:11px;letter-spacing:5px;color:var(--t3);margin-top:6px;animation:fadeUp 0.6s 0.75s ease both}
+.sp-track{width:220px;height:2px;background:var(--glass2);border-radius:99px;margin-top:44px;overflow:hidden;animation:fadeUp 0.5s 0.9s ease both}
+.sp-prog{height:100%;background:linear-gradient(90deg,var(--goldDeep),var(--gold2),var(--rose),var(--lav));border-radius:99px;width:0;animation:prog 2s 1s ease forwards}
+.cursor{display:inline-block;width:2px;background:var(--gold2);margin-right:2px;animation:blink2 0.7s step-end infinite}
+@keyframes blink2{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes prog{to{width:100%}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── APP ──────────────────────────────────────────── */
+#app{display:none;min-height:100vh;padding-bottom:100px;position:relative;z-index:1}
+
+/* ── HEADER ───────────────────────────────────────── */
+.hdr{
+  position:sticky;top:0;z-index:300;
+  padding:14px 20px 12px;
+  background:rgba(13,5,16,0.82);
+  backdrop-filter:blur(32px) saturate(1.8);
+  -webkit-backdrop-filter:blur(32px) saturate(1.8);
+  border-bottom:1px solid var(--bdr);
+}
+.hdr-r1{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-jewel{
+  width:48px;height:48px;border-radius:16px;
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  background:linear-gradient(135deg,var(--goldDeep),var(--gold2),var(--rose));
+  box-shadow:0 4px 20px rgba(232,184,109,0.35),0 0 0 1px rgba(232,184,109,0.25);
+}
+.brand-jewel::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.28) 0%,transparent 55%);
+}
+.bname{
+  font-size:21px;font-weight:900;letter-spacing:-0.5px;
+  background:linear-gradient(135deg,var(--gold2),var(--cream),var(--rose2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.bsub{font-size:9px;letter-spacing:2px;color:var(--t3);margin-top:2px}
+.hdr-acts{display:flex;gap:8px}
+.hact{
+  position:relative;width:42px;height:42px;
+  background:var(--glass);border:1px solid var(--bdr);
+  border-radius:14px;font-size:18px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all 0.2s;
+}
+.hact:hover{background:var(--glass2);border-color:var(--bdr2)}
+.hact:active{transform:scale(0.93)}
+.hbadge{
+  position:absolute;top:-5px;right:-5px;
+  background:linear-gradient(135deg,var(--roseDeep),#FF3070);
+  color:#fff;font-size:9px;font-weight:800;
+  min-width:18px;height:18px;padding:0 4px;
+  border-radius:9px;display:none;
+  align-items:center;justify-content:center;
+  border:2px solid var(--ink);
+}
+.timepill{
+  background:var(--glass);border:1px solid var(--bdr);
+  border-radius:14px;padding:10px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.tl{display:flex;align-items:center;gap:10px}
+.tico{font-size:18px;opacity:0.4}
+#clk{
+  font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:1px;
+  background:linear-gradient(135deg,var(--gold2),var(--rose2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+#clkd{font-size:9px;color:var(--t3);margin-top:2px;letter-spacing:0.5px}
+.statusbadge{
+  display:flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:var(--r-pill);
+  font-size:11px;font-weight:700;transition:all 0.4s;
+}
+.statusbadge.open{background:rgba(126,236,212,0.12);border:1px solid rgba(126,236,212,0.25);color:var(--mint)}
+.statusbadge.shut{background:rgba(240,160,184,0.1);border:1px solid rgba(240,160,184,0.2);color:var(--rose)}
+.sdot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:sdot 1.6s ease infinite}
+@keyframes sdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.6)}}
+
+/* ── SEARCH ───────────────────────────────────────── */
+.srchwrap{padding:14px 20px 0}
+.srchbox{
+  background:var(--glass);border:1px solid var(--bdr);
+  border-radius:var(--r-lg);padding:12px 16px;
+  display:flex;align-items:center;gap:10px;
+  transition:all 0.25s;
+}
+.srchbox:focus-within{border-color:var(--bdr2);box-shadow:0 0 0 4px rgba(232,184,109,0.06),var(--glow-gold)}
+.srchbox input{flex:1;border:none;outline:none;background:transparent;font-family:inherit;font-size:14px;color:var(--t1)}
+.srchbox input::placeholder{color:var(--t4)}
+.sico{font-size:16px;color:var(--t3)}
+
+/* ── HERO floaters & typing ─────────────────────── */
+.hero-floaters{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.hf{position:absolute;font-size:28px;opacity:0.18;animation:hfloat 6s ease-in-out infinite}
+.hf1{top:10%;left:5%;animation-delay:0s;animation-duration:7s}
+.hf2{top:60%;left:8%;animation-delay:1s;animation-duration:5s}
+.hf3{top:20%;right:12%;animation-delay:2s;animation-duration:8s}
+.hf4{bottom:15%;right:8%;animation-delay:0.5s;animation-duration:6s}
+.hf5{top:45%;left:2%;animation-delay:3s;animation-duration:9s}
+@keyframes hfloat{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-14px) rotate(8deg)}75%{transform:translateY(8px) rotate(-5deg)}}
+.hero-img-wrap{position:relative;z-index:2;flex-shrink:0}
+.hero-real-img{
+  width:130px;height:130px;border-radius:24px;
+  object-fit:cover;
+  box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 0 2px rgba(200,168,248,0.3);
+  animation:hFloat 4s ease-in-out infinite;
+}
+.hero-typing{min-height:72px}
+/* ── HERO — iridescent gradient + parallax float ──── */
+.hero{
+  margin:16px 20px;border-radius:var(--r-2xl);
+  overflow:hidden;position:relative;
+  min-height:210px;cursor:pointer;
+  border:1px solid rgba(200,168,248,0.2);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(145deg,#130830 0%,#200B40 30%,#0A1A2A 65%,#180828 100%);
+}
+.hero-mesh{
+  position:absolute;inset:0;overflow:hidden;
+}
+.hmesh-orb{position:absolute;border-radius:50%;filter:blur(60px)}
+.h1{width:280px;height:280px;background:radial-gradient(circle,rgba(112,64,192,0.55),transparent 65%);top:-80px;left:-60px}
+.h2{width:200px;height:200px;background:radial-gradient(circle,rgba(136,212,248,0.3),transparent 65%);bottom:-60px;right:40px}
+.h3{width:140px;height:140px;background:radial-gradient(circle,rgba(240,160,184,0.3),transparent 65%);top:30px;right:110px}
+/* grid lines */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(200,168,248,0.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(200,168,248,0.07) 1px,transparent 1px);
+  background-size:40px 40px;
+  mask-image:linear-gradient(to bottom,transparent,rgba(0,0,0,0.5) 30%,rgba(0,0,0,0.5) 70%,transparent);
+}
+.hero-content{position:relative;z-index:2;padding:28px 22px;display:flex;align-items:center;justify-content:space-between}
+.htag{
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(200,168,248,0.16);border:1px solid rgba(200,168,248,0.3);
+  color:var(--lav2);font-size:10px;font-weight:700;letter-spacing:1px;
+  padding:5px 12px;border-radius:var(--r-pill);margin-bottom:12px;
+}
+.htitle{font-size:30px;font-weight:900;line-height:1.1;color:#fff}
+.htitle em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--lav),var(--sky),var(--mint));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hsub{font-size:12px;color:rgba(255,255,255,0.45);margin-top:8px;line-height:1.75}
+.hcta{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,var(--lavDeep),#9060E0);
+  color:#fff;border:none;font-family:inherit;font-size:13px;font-weight:700;
+  padding:12px 22px;border-radius:14px;margin-top:18px;cursor:pointer;
+  box-shadow:0 6px 28px rgba(112,64,192,0.5);
+  transition:all 0.2s;
+}
+.hcta:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(112,64,192,0.65)}
+.hcta:active{transform:scale(0.96)}
+.hvisual{font-size:90px;filter:drop-shadow(0 0 28px rgba(200,168,248,0.5));animation:hFloat 4s ease-in-out infinite}
+@keyframes hFloat{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-16px) rotate(7deg)}}
+
+/* ── SECTION HEADER ───────────────────────────────── */
+.sech{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;margin:28px 0 14px;
+}
+.sect{
+  font-size:18px;font-weight:800;
+  display:flex;align-items:center;gap:10px;
+}
+.sect::before{
+  content:'';display:inline-block;
+  width:3px;height:20px;border-radius:99px;
+  background:linear-gradient(180deg,var(--gold2),var(--rose));
+}
+.secmore{font-size:12px;color:var(--gold);font-weight:600;cursor:pointer;opacity:0.7;transition:opacity 0.2s}
+.secmore:hover{opacity:1}
+
+/* ── CATS ─────────────────────────────────────────── */
+.cattrack{display:flex;gap:10px;padding:0 20px;overflow-x:auto;scrollbar-width:none}
+.cattrack::-webkit-scrollbar{display:none}
+.catpill{
+  flex:0 0 auto;
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  padding:14px 18px;min-width:72px;
+  background:var(--glass);border:1px solid var(--bdr);
+  border-radius:var(--r-xl);cursor:pointer;
+  transition:all 0.22s;
+}
+.catpill:hover{background:var(--glass2);border-color:var(--bdr2)}
+.catpill.on{
+  background:linear-gradient(135deg,rgba(232,184,109,0.14),rgba(240,160,184,0.06));
+  border-color:rgba(232,184,109,0.4);
+  box-shadow:var(--glow-gold),inset 0 1px 0 rgba(255,244,232,0.08);
+}
+.catpill:active{transform:scale(0.94)}
+.catemo{font-size:26px;line-height:1}
+.cat-img{
+  width:44px;height:44px;border-radius:12px;
+  object-fit:cover;display:block;
+  border:1.5px solid var(--bdr);
+  transition:border-color 0.2s;
+}
+.catpill.on .cat-img{border-color:rgba(232,184,109,0.6);}
+.catlbl{font-size:10px;font-weight:600;color:var(--t2);white-space:nowrap;transition:color 0.2s}
+.catpill.on .catlbl{color:var(--gold2)}
+
+/* ── OFFER CARDS ──────────────────────────────────── */
+.offertrack{display:flex;gap:14px;padding:0 20px;overflow-x:auto;scrollbar-width:none}
+.offertrack::-webkit-scrollbar{display:none}
+.ofcard{
+  flex:0 0 195px;
+  background:var(--glass);border:1px solid var(--bdr);
+  border-radius:var(--r-2xl);overflow:hidden;cursor:pointer;
+  transition:all 0.25s;
+}
+.ofcard:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,0.45),var(--glow-rose)}
+.ofcard:active{transform:scale(0.97)}
+.ofart{
+  height:115px;display:flex;align-items:center;justify-content:center;
+  font-size:56px;position:relative;overflow:hidden;
+}
+.ofart::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.3),transparent 50%)}
+.ofpct{
+  position:absolute;top:10px;right:10px;z-index:1;
+  background:linear-gradient(135deg,var(--roseDeep),#FF2060);
+  color:#fff;font-size:9px;font-weight:800;
+  padding:4px 9px;border-radius:var(--r-pill);
+  box-shadow:0 3px 12px rgba(192,64,112,0.5);
+}
+.ofbody{padding:12px 14px 16px}
+.ofname{font-size:13px;font-weight:700;margin-bottom:7px}
+.ofrow{display:flex;align-items:baseline;gap:8px}
+.ofold{font-size:10px;color:var(--t3);text-decoration:line-through}
+.ofnew{font-size:17px;font-weight:900;color:var(--gold2)}
+
+/* ── PRODUCT GRID ─────────────────────────────────── */
+.prodgrid{padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pcard{
+  background:var(--glass);border:1px solid var(--bdr);
+  border-radius:var(--r-2xl);overflow:hidden;cursor:pointer;
+  transition:all 0.25s;position:relative;
+}
+/* product card image & hover */
+.pcard-art-wrap{position:relative;overflow:hidden}
+.pcard-img-real{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform 0.4s cubic-bezier(0.34,1.2,0.64,1);
+}
+.pcard:hover .pcard-img-real{transform:scale(1.08)}
+.pcard-emo-only{
+  font-size:52px;
+  filter:drop-shadow(0 2px 10px rgba(0,0,0,0.3));
+}
+.img-err .pcard-emo-only{display:block}
+/* hover overlay */
+.pcard-hover-layer{
+  position:absolute;inset:0;z-index:5;
+  background:linear-gradient(to top,rgba(13,5,16,0.88) 0%,rgba(13,5,16,0.2) 55%,transparent 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  padding-bottom:14px;gap:5px;
+  opacity:0;
+  transition:opacity 0.25s ease;
+}
+.pcard:hover .pcard-hover-layer{opacity:1}
+.phl-icon{font-size:26px;transform:translateY(8px);transition:transform 0.3s ease}
+.pcard:hover .phl-icon{transform:translateY(0)}
+.phl-txt{
+  font-size:11px;font-weight:700;letter-spacing:0.5px;
+  color:var(--gold2);
+  background:rgba(232,184,109,0.18);
+  border:1px solid rgba(232,184,109,0.3);
+  padding:4px 12px;border-radius:var(--r-pill);
+  transform:translateY(8px);transition:transform 0.3s 0.04s ease;
+}
+.pcard:hover .phl-txt{transform:translateY(0)}
+.pcard::before{
+  content:'';position:absolute;inset:0;border-radius:var(--r-2xl);
+  background:linear-gradient(135deg,rgba(255,255,255,0.04) 0%,transparent 50%);
+  pointer-events:none;z-index:1;
+}
+.pcard:hover{
+  transform:translateY(-6px);
+  border-color:var(--bdr2);
+  box-shadow:0 24px 60px rgba(0,0,0,0.5),var(--glow-gold);
+}
+.pcard:active{transform:scale(0.97)}
+.part{
+  height:124px;display:flex;align-items:center;justify-content:center;
+  font-size:52px;position:relative;overflow:hidden;
+}
+.part::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:50px;
+  background:linear-gradient(to top,rgba(13,5,16,0.6),transparent);
+}
+.pbody{padding:11px 13px 14px}
+.pcat{font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--gold);opacity:0.7;margin-bottom:3px}
+.pname{font-size:13px;font-weight:700;margin-bottom:3px;line-height:1.3}
+.pdesc{font-size:10px;color:var(--t2);line-height:1.7;margin-bottom:10px}
+.pfoot{display:flex;align-items:center;justify-content:space-between}
+.pprice{font-size:13px;font-weight:800;color:var(--gold2)}
+.pprice small{font-size:9px;font-weight:400;color:var(--t3);margin-right:1px}
+.padd{
+  width:34px;height:34px;
+  background:linear-gradient(135deg,var(--goldDeep),var(--gold2));
+  border:none;border-radius:11px;
+  color:var(--ink);font-size:20px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all 0.15s;
+  box-shadow:0 4px 16px rgba(196,139,48,0.45);
+}
+.padd:hover{transform:scale(1.12);box-shadow:0 8px 24px rgba(196,139,48,0.65)}
+.padd:active{transform:scale(0.9)}
+
+/* ── FLOATING NAV ─────────────────────────────────── */
+.floatnav{
+  position:fixed;bottom:18px;left:18px;right:18px;z-index:400;
+  background:rgba(13,5,16,0.9);
+  backdrop-filter:blur(32px) saturate(2);
+  -webkit-backdrop-filter:blur(32px) saturate(2);
+  border:1px solid var(--bdr);border-radius:var(--r-2xl);
+  padding:10px 10px 12px;
+  display:flex;justify-content:space-around;
+  box-shadow:0 10px 50px rgba(0,0,0,0.6),0 0 0 1px rgba(232,184,109,0.06),var(--glow-gold);
+}
+.fnav{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:8px 14px;border-radius:var(--r-lg);
+  cursor:pointer;transition:all 0.2s;position:relative;
+}
+.fnav:hover{background:var(--glass)}
+.fnav.on{background:rgba(232,184,109,0.12)}
+.fnav:active{transform:scale(0.92)}
+.fnico{font-size:22px;filter:grayscale(1) opacity(0.3);transition:all 0.2s}
+.fnlbl{font-size:10px;color:var(--t3);font-weight:500;transition:color 0.2s}
+.fnav.on .fnico{filter:none}
+.fnav.on .fnlbl{color:var(--gold2);font-weight:700}
+.fnbadge{
+  position:absolute;top:4px;right:8px;
+  background:linear-gradient(135deg,var(--roseDeep),#FF2060);
+  color:#fff;font-size:9px;font-weight:800;
+  min-width:17px;height:17px;border-radius:9px;padding:0 4px;
+  display:none;align-items:center;justify-content:center;
+  border:2px solid var(--ink);
+}
+
+/* ── PAGES ────────────────────────────────────────── */
+.pg{display:none}
+.pg.on{display:block}
+.pgi{padding:20px}
+.pgtitle{
+  font-size:26px;font-weight:900;margin-bottom:22px;
+  background:linear-gradient(135deg,var(--gold2),var(--cream),var(--rose2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* ── CART ─────────────────────────────────────────── */
+.cempty{text-align:center;padding:90px 20px}
+.cemico{font-size:80px;display:block;margin-bottom:18px;opacity:0.15;filter:grayscale(1)}
+.cemp{color:var(--t2);font-size:15px;line-height:1.75}
+.citem{
+  background:var(--glass);border:1px solid var(--bdr);
+  border-radius:var(--r-xl);padding:14px;
+  display:flex;align-items:center;gap:12px;margin-bottom:10px;
+  transition:border-color 0.2s;
+}
+.citem:hover{border-color:var(--bdr2)}
+.cem{font-size:38px;flex-shrink:0}
+.cinf{flex:1}
+.cin{font-size:14px;font-weight:700}
+.cip{font-size:12px;color:var(--gold2);font-weight:600;margin-top:3px}
+.qctl{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(0,0,0,0.3);border-radius:10px;padding:6px 10px;
+}
+.qbtn{
+  width:28px;height:28px;border-radius:9px;
+  background:var(--glass2);border:1px solid var(--bdr);
+  color:var(--t1);font-size:17px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all 0.15s;
+}
+.qbtn:hover{background:rgba(232,184,109,0.25);border-color:var(--bdr2)}
+.qnum{font-size:14px;font-weight:800;min-width:20px;text-align:center}
+.csum{
+  background:var(--glass);border:1px solid var(--bdr);
+  border-radius:var(--r-2xl);padding:22px;margin-top:16px;
+}
+.crow{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:9px 0;border-bottom:1px solid var(--glass3);
+}
+.crow:last-of-type{border:none}
+.cl{font-size:13px;color:var(--t2)}
+.cv{font-size:14px;font-weight:700}
+.ctot{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:18px;padding-top:18px;border-top:1px solid var(--bdr);
+}
+.ctrl{font-size:16px;font-weight:700}
+.ctrv{
+  font-size:28px;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--rose2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.chkbtn{
+  width:100%;margin-top:18px;
+  background:linear-gradient(135deg,var(--goldDeep),var(--gold2));
+  color:var(--ink);border:none;border-radius:var(--r-xl);padding:18px;
+  font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;
+  box-shadow:0 8px 32px rgba(196,139,48,0.45);transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.chkbtn:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(196,139,48,0.6)}
+.chkbtn:active{transform:scale(0.97)}
+
+/* ── PROFILE ──────────────────────────────────────── */
+.profhero{
+  border-radius:var(--r-2xl);overflow:hidden;
+  position:relative;margin-bottom:20px;
+  background:linear-gradient(135deg,var(--ink3),var(--ink4),var(--ink5));
+  border:1px solid var(--bdr);padding:26px 22px;
+}
+.profhero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 20%,rgba(232,184,109,0.12),transparent 60%);
+}
+.phrow{display:flex;align-items:center;gap:18px;position:relative;z-index:1}
+.phava{
+  width:68px;height:68px;border-radius:22px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--goldDeep),var(--gold2));
+  display:flex;align-items:center;justify-content:center;font-size:30px;
+  box-shadow:0 8px 28px rgba(196,139,48,0.4),0 0 0 1px rgba(232,184,109,0.3);
+}
+.phname{font-size:20px;font-weight:900}
+.phsub{font-size:13px;color:var(--t2);margin-top:4px}
+.profstats{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;
+  margin-top:20px;background:var(--bdr);border-radius:var(--r-lg);overflow:hidden;
+  position:relative;z-index:1;
+}
+.pstat{background:var(--ink2);padding:14px 10px;text-align:center}
+.pstv{font-size:20px;font-weight:900;color:var(--gold2)}
+.pstl{font-size:10px;color:var(--t3);margin-top:3px}
+.mnu{
+  background:var(--glass);border:1px solid var(--bdr);
+  border-radius:var(--r-xl);padding:16px 18px;
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:10px;cursor:pointer;transition:all 0.2s;
+}
+.mnu:hover{border-color:var(--bdr2);background:var(--glass2);transform:translateX(-4px)}
+.mnu:active{transform:scale(0.98)}
+.mico{
+  width:42px;height:42px;border-radius:14px;flex-shrink:0;
+  background:rgba(0,0,0,0.3);
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.mlbl{flex:1;font-size:14px;font-weight:600}
+.marr{color:var(--t3)}
+
+/* ── SUPPORT ──────────────────────────────────────── */
+.supcard{
+  background:var(--glass);border:1px solid var(--bdr);
+  border-radius:var(--r-xl);padding:18px;
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:12px;cursor:pointer;transition:all 0.22s;
+}
+.supcard:hover{border-color:var(--bdr2);transform:translateX(-4px);box-shadow:var(--glow-gold)}
+.supcard:active{transform:scale(0.98)}
+.supico{
+  width:50px;height:50px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;
+}
+.supinf h4{font-size:15px;font-weight:700}
+.supinf p{font-size:12px;color:var(--t2);margin-top:3px}
+.suparr{margin-right:auto;color:var(--t3)}
+
+/* chat */
+.chatbox{
+  background:var(--glass);border:1px solid var(--bdr);
+  border-radius:var(--r-2xl);overflow:hidden;margin-top:14px;
+}
+.chathdr{
+  padding:16px 18px;display:flex;align-items:center;gap:12px;
+  background:linear-gradient(135deg,rgba(232,184,109,0.14),rgba(240,160,184,0.06));
+  border-bottom:1px solid var(--bdr);
+}
+.chatava{
+  width:42px;height:42px;border-radius:14px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--goldDeep),var(--gold2));
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  box-shadow:0 4px 18px rgba(196,139,48,0.4);
+}
+.chatonline{font-size:10px;color:var(--mint);display:flex;align-items:center;gap:4px;margin-top:2px}
+.chatonline::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--mint);animation:sdot 1.5s infinite}
+.chatmsgs{
+  height:260px;overflow-y:auto;padding:14px;
+  display:flex;flex-direction:column;gap:8px;
+  background:rgba(0,0,0,0.18);
+}
+.chatmsgs::-webkit-scrollbar{width:2px}
+.chatmsgs::-webkit-scrollbar-thumb{background:var(--bdr2);border-radius:99px}
+.cmsg{
+  max-width:80%;padding:11px 15px;border-radius:20px;
+  font-size:13px;line-height:1.55;
+}
+.cmsg.bot{
+  background:var(--glass2);border:1px solid var(--bdr);
+  border-bottom-left-radius:4px;align-self:flex-end;
+}
+.cmsg.me{
+  background:linear-gradient(135deg,rgba(232,184,109,0.18),rgba(240,160,184,0.09));
+  border:1px solid rgba(232,184,109,0.18);
+  border-bottom-right-radius:4px;align-self:flex-start;
+}
+.chatinrow{
+  display:flex;gap:10px;padding:12px;
+  border-top:1px solid var(--bdr);
+}
+.chatin{
+  flex:1;background:rgba(0,0,0,0.25);border:1px solid var(--bdr);
+  border-radius:14px;padding:11px 15px;
+  font-family:inherit;font-size:13px;color:var(--t1);outline:none;
+  transition:border-color 0.2s;
+}
+.chatin:focus{border-color:var(--bdr2)}
+.chatin::placeholder{color:var(--t3)}
+.sendbtn{
+  width:44px;height:44px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--goldDeep),var(--gold2));
+  border:none;border-radius:14px;font-size:16px;
+  cursor:pointer;color:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(196,139,48,0.45);transition:all 0.2s;
+}
+.sendbtn:hover{box-shadow:0 8px 24px rgba(196,139,48,0.65)}
+.sendbtn:active{transform:scale(0.9)}
+
+/* ── MODALS ───────────────────────────────────────── */
+.movl{
+  position:fixed;inset:0;z-index:600;
+  background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  display:none;align-items:flex-end;
+}
+.movl.open{display:flex;animation:mfade 0.2s ease}
+@keyframes mfade{from{opacity:0}to{opacity:1}}
+.msheet{
+  background:var(--ink2);
+  border:1px solid var(--bdr);
+  border-top:1px solid var(--bdr2);
+  border-radius:28px 28px 0 0;
+  padding:20px 24px 48px;
+  width:100%;max-height:90vh;overflow-y:auto;
+  animation:mup 0.38s cubic-bezier(0.34,1.18,0.64,1) forwards;
+}
+@keyframes mup{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.mhandle{width:36px;height:4px;background:var(--bdr2);border-radius:99px;margin:0 auto 22px}
+
+/* product modal */
+.pmodem{
+  font-size:72px;display:block;text-align:center;margin-bottom:16px;
+  filter:drop-shadow(0 0 28px rgba(232,184,109,0.4));
+  animation:popbig 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes popbig{from{transform:scale(0.2) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.pmodn{font-size:24px;font-weight:900;text-align:center;margin-bottom:7px}
+.pmodd{font-size:13px;color:var(--t2);text-align:center;line-height:1.75;margin-bottom:22px}
+.pmodpw{
+  background:rgba(0,0,0,0.25);border:1px solid var(--bdr);
+  border-radius:var(--r-xl);padding:17px;
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;
+}
+.pmodpl{font-size:13px;color:var(--t2)}
+.pmodpv{
+  font-size:26px;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--rose2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.pmodadd{
+  width:100%;
+  background:linear-gradient(135deg,var(--goldDeep),var(--gold2));
+  color:var(--ink);border:none;border-radius:var(--r-xl);padding:17px;
+  font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;
+  box-shadow:0 8px 28px rgba(196,139,48,0.45);transition:all 0.2s;
+}
+.pmodadd:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(196,139,48,0.6)}
+.pmodadd:active{transform:scale(0.97)}
+
+/* login modal */
+.llogo{text-align:center;margin-bottom:26px}
+.llo-ico{font-size:56px;display:block;margin-bottom:14px;filter:drop-shadow(0 0 24px rgba(196,139,48,0.5));animation:popbig 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.lh2{
+  font-size:24px;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--cream),var(--rose2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.lsub{font-size:13px;color:var(--t2);margin-top:5px}
+.lstp{display:none}
+.lstp.on{display:block}
+.inlbl{font-size:11px;font-weight:700;letter-spacing:0.8px;color:var(--t2);margin-bottom:9px;display:block}
+.phrow{display:flex;gap:10px;margin-bottom:18px}
+.pfx{
+  background:rgba(0,0,0,0.25);border:1px solid var(--bdr);
+  border-radius:14px;padding:14px 16px;
+  font-size:14px;font-weight:700;color:var(--gold2);
+  display:flex;align-items:center;gap:6px;white-space:nowrap;
+}
+.finp{
+  background:rgba(0,0,0,0.25);border:1px solid var(--bdr);
+  border-radius:14px;padding:14px 16px;
+  font-family:inherit;font-size:15px;color:var(--t1);
+  outline:none;transition:all 0.2s;
+  text-align:right;direction:ltr;
+}
+.finp:focus{border-color:var(--bdr2);box-shadow:0 0 0 4px rgba(232,184,109,0.07)}
+.phrow .finp{flex:1;width:auto}
+.pbtn{
+  width:100%;
+  background:linear-gradient(135deg,var(--goldDeep),var(--gold2));
+  color:var(--ink);border:none;border-radius:16px;padding:17px;
+  font-family:inherit;font-size:16px;font-weight:800;cursor:pointer;
+  box-shadow:0 8px 28px rgba(196,139,48,0.4);transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.pbtn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(196,139,48,0.55)}
+.pbtn:active{transform:scale(0.97)}
+.otprow{display:flex;gap:10px;justify-content:center;margin-bottom:20px;direction:ltr}
+.otpin{
+  width:54px;height:62px;
+  background:rgba(0,0,0,0.28);border:2px solid var(--bdr);
+  border-radius:18px;text-align:center;
+  font-family:inherit;font-size:26px;font-weight:900;
+  color:var(--gold2);outline:none;transition:all 0.2s;
+}
+.otpin:focus{border-color:var(--gold2);box-shadow:0 0 0 4px rgba(232,184,109,0.1)}
+.resnd{text-align:center;font-size:13px;color:var(--t2);margin-top:16px}
+.resnd span{color:var(--gold2);font-weight:700;cursor:pointer}
+.okwrp{text-align:center;padding:14px 0}
+.okico{font-size:70px;display:block;margin-bottom:16px;animation:popbig 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.okh{
+  font-size:26px;font-weight:900;
+  background:linear-gradient(135deg,var(--mint),var(--sky),var(--lav));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.okp{font-size:13px;color:var(--t2);margin-top:7px}
+
+/* ── TOAST ────────────────────────────────────────── */
+#tst{
+  position:fixed;bottom:114px;left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:var(--ink4);border:1px solid var(--bdr2);
+  color:var(--t1);padding:13px 26px;border-radius:var(--r-pill);
+  font-size:13px;font-weight:600;
+  z-index:9999;opacity:0;pointer-events:none;
+  transition:all 0.35s cubic-bezier(0.34,1.2,0.64,1);
+  white-space:nowrap;box-shadow:0 12px 48px rgba(0,0,0,0.55);
+}
+#tst.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* art gradients */
+.ga{background:linear-gradient(135deg,#1A0820,#2A0E35)}
+.gb{background:linear-gradient(135deg,#081820,#0E2A35)}
+.gc{background:linear-gradient(135deg,#081A10,#0E2818)}
+.gd{background:linear-gradient(135deg,#1A1008,#2A1A0E)}
+.ge{background:linear-gradient(135deg,#100820,#1E1035)}
+.gf{background:linear-gradient(135deg,#08181A,#0E2A2E)}
+.gg{background:linear-gradient(135deg,#1A1808,#2A260E)}
+/* ── SMS NOTIFICATION POPUP ─────────────────────── */
+#sms-notif {
+  position: fixed;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 380px;
+  background: rgba(28, 20, 40, 0.97);
+  border: 1px solid rgba(232,184,109,0.35);
+  border-radius: 20px;
+  padding: 14px 16px;
+  z-index: 9998;
+  box-shadow: 0 16px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(232,184,109,0.1);
+  backdrop-filter: blur(20px);
+  transition: top 0.5s cubic-bezier(0.34,1.2,0.64,1);
+}
+#sms-notif.show { top: 16px; }
+.sms-top {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+}
+.sms-app-icon {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.sms-app-name { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.7); }
+.sms-time { font-size: 11px; color: rgba(255,255,255,0.35); margin-right: auto; }
+.sms-sender { font-size: 13px; font-weight: 800; color: var(--gold2); margin-bottom: 4px; }
+.sms-body { font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.5; }
+.sms-body strong { color: var(--gold2); font-size: 20px; letter-spacing: 4px; }
+.sms-dismiss {
+  position: absolute; top: 10px; left: 14px;
+  font-size: 18px; color: rgba(255,255,255,0.3);
+  cursor: pointer; background: none; border: none;
+  transition: color 0.2s;
+}
+.sms-dismiss:hover { color: rgba(255,255,255,0.7); }
+/* vibration animation */
+@keyframes vibrate {
+  0%,100%{transform:translateX(-50%) rotate(0)}
+  20%{transform:translateX(calc(-50% - 4px)) rotate(-1deg)}
+  40%{transform:translateX(calc(-50% + 4px)) rotate(1deg)}
+  60%{transform:translateX(calc(-50% - 3px)) rotate(-0.5deg)}
+  80%{transform:translateX(calc(-50% + 3px)) rotate(0.5deg)}
+}
+#sms-notif.vibrating { animation: vibrate 0.4s ease; }
+
+/* ── CHECKOUT MODAL ─────────────────────────────── */
+.addr-section { margin-bottom: 20px; }
+.addr-section-title {
+  font-size: 13px; font-weight: 700; color: var(--gold2);
+  margin-bottom: 10px; display: flex; align-items: center; gap-6px;
+  letter-spacing: 0.5px;
+}
+.addr-section-title::before {
+  content: ''; display: inline-block;
+  width: 3px; height: 14px; border-radius: 99px;
+  background: linear-gradient(180deg, var(--gold2), var(--rose));
+  margin-left: 8px;
+}
+.addr-row { display: flex; gap: 10px; margin-bottom: 10px; }
+.addr-row .finp { flex: 1; width: auto; }
+.addr-row .finp.sm { flex: 0 0 100px; }
+.finp-wrap { position: relative; margin-bottom: 10px; }
+.finp-wrap .finp { width: 100%; padding-right: 42px; }
+.finp-wrap .finp-icon {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  font-size: 16px; pointer-events: none;
+}
+.finp { text-align: right; direction: rtl; }
+.finp.ltr-inp { text-align: left; direction: ltr; }
+.delivery-options { display: flex; gap: 10px; margin-bottom: 16px; }
+.del-opt {
+  flex: 1; padding: 12px 10px; border-radius: 14px;
+  background: rgba(0,0,0,0.2); border: 2px solid var(--bdr);
+  cursor: pointer; text-align: center; transition: all 0.2s;
+}
+.del-opt:hover { border-color: var(--bdr2); }
+.del-opt.selected {
+  border-color: var(--gold2);
+  background: rgba(232,184,109,0.1);
+  box-shadow: 0 0 20px rgba(232,184,109,0.1);
+}
+.del-opt .do-icon { font-size: 24px; display: block; margin-bottom: 6px; }
+.del-opt .do-label { font-size: 12px; font-weight: 700; color: var(--t1); }
+.del-opt .do-time { font-size: 10px; color: var(--t2); margin-top: 2px; }
+.order-summary-box {
+  background: rgba(0,0,0,0.2); border: 1px solid var(--bdr);
+  border-radius: var(--r-xl); padding: 16px; margin-bottom: 18px;
+}
+.os-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 13px;
+}
+.os-row:last-child { border: none; }
+.os-lbl { color: var(--t2); }
+.os-val { font-weight: 700; }
+.os-total-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--bdr);
+}
+.os-total-lbl { font-size: 15px; font-weight: 700; }
+.os-total-val {
+  font-size: 22px; font-weight: 900;
+  background: linear-gradient(135deg, var(--gold2), var(--rose2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.step-indicator {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0; margin-bottom: 24px;
+}
+.step-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--glass2); border: 2px solid var(--bdr);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; color: var(--t3);
+  transition: all 0.3s; flex-shrink: 0;
+}
+.step-dot.done {
+  background: linear-gradient(135deg, var(--goldDeep), var(--gold2));
+  border-color: var(--gold2); color: var(--ink);
+}
+.step-dot.active {
+  background: rgba(232,184,109,0.15); border-color: var(--gold2);
+  color: var(--gold2); box-shadow: 0 0 16px rgba(232,184,109,0.3);
+}
+.step-line {
+  flex: 1; height: 2px; background: var(--bdr);
+  margin: 0 4px; max-width: 40px;
+}
+.step-line.done { background: var(--gold2); }
+.cstep { display: none; }
+.cstep.on { display: block; }
+/* success animation */
+.order-success {
+  text-align: center; padding: 20px 0 10px;
+}
+.order-success .ok-ring {
+  width: 90px; height: 90px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(126,236,212,0.2), rgba(126,236,212,0.05));
+  border: 2px solid var(--mint);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px; margin: 0 auto 18px;
+  animation: popbig 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow: 0 0 40px rgba(126,236,212,0.25);
+}
+.order-success h3 {
+  font-size: 24px; font-weight: 900;
+  background: linear-gradient(135deg, var(--mint), var(--sky));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 8px;
+}
+.order-success p { font-size: 13px; color: var(--t2); line-height: 1.7; }
+.tracking-code {
+  background: rgba(0,0,0,0.25); border: 1px solid var(--bdr2);
+  border-radius: 14px; padding: 14px; margin: 16px 0;
+  text-align: center;
+}
+.tc-label { font-size: 11px; color: var(--t3); margin-bottom: 6px; }
+.tc-code {
+  font-size: 22px; font-weight: 900; letter-spacing: 4px;
+  color: var(--gold2);
+}
+
+
+/* ── PAYMENT OPTIONS ─────────────────────────────── */
+.pay-opts { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+.pay-opt {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--glass); border: 2px solid var(--bdr);
+  border-radius: var(--r-lg); padding: 16px;
+  cursor: pointer; transition: all 0.2s;
+}
+.pay-opt:hover { border-color: var(--bdr2); background: var(--glass2); }
+.pay-opt.on {
+  border-color: rgba(232,184,109,0.55);
+  background: linear-gradient(135deg,rgba(232,184,109,0.12),rgba(240,160,184,0.05));
+  box-shadow: var(--glow-gold);
+}
+.pay-opt-ico {
+  width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.pay-opt-info { flex: 1; }
+.pay-opt-title { font-size: 14px; font-weight: 700; }
+.pay-opt-sub { font-size: 11px; color: var(--t2); margin-top: 3px; }
+.pay-radio {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid var(--bdr2); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.pay-opt.on .pay-radio {
+  border-color: var(--gold2);
+  background: var(--gold2);
+  box-shadow: 0 0 0 3px rgba(232,184,109,0.2);
+}
+.pay-opt.on .pay-radio::after {
+  content: ''; width: 8px; height: 8px;
+  border-radius: 50%; background: var(--ink);
+}
+/* card form */
+.card-form { display: none; margin-top: 12px; }
+.card-form.show { display: block; }
+.card-row { display: flex; gap: 10px; margin-bottom: 10px; }
+.card-row .finp { flex: 1; width: auto; }
+/* step indicator — 4 steps now */
+.step-dot.s4 { }
+</style>
+</head>
+<body>
+
+<div id="ambient">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="orb orb4"></div>
+</div>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="sp-halo">
+    <div class="sp-ring1"></div>
+    <div class="sp-ring2"></div>
+    <div class="sp-ice">🍦</div>
+  </div>
+  <div class="sp-wordmark">جعفرنژاد</div>
+  <div class="sp-en">FINEST ICE CREAM · SINCE 1368</div>
+  <div class="sp-track"><div class="sp-prog"></div></div>
+</div>
+
+<!-- APP -->
+<div id="app">
+
+  <!-- HOME -->
+  <div class="pg on" id="pg-home">
+    <div class="hdr">
+      <div class="hdr-r1">
+        <div class="brand">
+          <div class="brand-jewel">🍦</div>
+          <div>
+            <div class="bname">جعفرنژاد</div>
+            <div class="bsub">ARTISAN ICE CREAM · 1368</div>
+          </div>
+        </div>
+        <div class="hdr-acts">
+          <div class="hact" onclick="goP('support')">💬</div>
+          <div class="hact" id="hactcart" onclick="goP('cart')">🛒<span class="hbadge" id="hbg">0</span></div>
+        </div>
+      </div>
+      <div class="timepill">
+        <div class="tl">
+          <span class="tico">⏰</span>
+          <div><div id="clk">00:00:00</div><div id="clkd">لحظه‌ای صبر کنید...</div></div>
+        </div>
+        <div class="statusbadge open" id="stbg">
+          <span class="sdot"></span><span id="stxt">باز هستیم</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="srchwrap">
+      <div class="srchbox">
+        <span class="sico">🔍</span>
+        <input type="text" placeholder="جستجو در منوی جعفرنژاد..." oninput="doSearch(this.value)">
+      </div>
+    </div>
+
+    <!-- HERO - Animated -->
+    <div class="hero" onclick="setC('میلک شیک')" style="overflow:hidden;cursor:pointer">
+      <div class="hero-bg"></div>
+      <div class="hero-mesh">
+        <div class="hmesh-orb h1"></div>
+        <div class="hmesh-orb h2"></div>
+        <div class="hmesh-orb h3"></div>
+      </div>
+      <div class="hero-grid"></div>
+      <!-- animated floating items -->
+      <div class="hero-floaters">
+        <span class="hf hf1">🍦</span>
+        <span class="hf hf2">🍓</span>
+        <span class="hf hf3">⭐</span>
+        <span class="hf hf4">🫧</span>
+        <span class="hf hf5">🍒</span>
+      </div>
+      <div class="hero-content">
+        <div>
+          <div class="htag">✦ جعفرنژاد</div>
+          <h2 class="htitle hero-typing" id="hero-txt"></h2>
+          <p class="hsub">خامه‌ای · سرد · اعلا<br>بهترین طعم‌های فصل گرما</p>
+          <button class="hcta" onclick="event.stopPropagation();setC('میلک شیک')">سفارش دهید ←</button>
+        </div>
+        <div class="hero-img-wrap">
+          <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=300&fit=crop&auto=format" 
+               class="hero-real-img" alt="میلک شیک" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <div class="hvisual" style="display:none">🥤</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATS -->
+    <div class="sech"><div class="sect">دسته‌ها</div></div>
+    <div class="cattrack" id="cattrack">
+      <div class="catpill on" data-c="همه" onclick="setC('همه',this)">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=80&h=80&fit=crop&auto=format" alt="همه">
+        <span class="catlbl">همه</span>
+      </div>
+      <div class="catpill" data-c="آبمیوه" onclick="setC('آبمیوه',this)">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=80&h=80&fit=crop&auto=format" alt="آبمیوه">
+        <span class="catlbl">آبمیوه</span>
+      </div>
+      <div class="catpill" data-c="بستنی" onclick="setC('بستنی',this)">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=80&h=80&fit=crop&auto=format" alt="بستنی">
+        <span class="catlbl">بستنی</span>
+      </div>
+      <div class="catpill" data-c="آبمیوه میکس" onclick="setC('آبمیوه میکس',this)">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1546173159-315724a31696?w=80&h=80&fit=crop&auto=format" alt="میکس">
+        <span class="catlbl">میکس</span>
+      </div>
+      <div class="catpill" data-c="آبمیوه بطری" onclick="setC('آبمیوه بطری',this)">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1561047029-3000c68339ca?w=80&h=80&fit=crop&auto=format" alt="آبمیوه بطری">
+        <span class="catlbl">آبمیوه بطری</span>
+      </div>
+      <div class="catpill" data-c="ویتامینه" onclick="setC('ویتامینه',this)">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=80&h=80&fit=crop&auto=format" alt="ویتامینه">
+        <span class="catlbl">ویتامینه</span>
+      </div>
+      <div class="catpill" data-c="آیس پک" onclick="setC('آیس پک',this)">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=80&h=80&fit=crop&auto=format" alt="آیس پک">
+        <span class="catlbl">آیس پک</span>
+      </div>
+      <div class="catpill" data-c="گلاسه" onclick="setC('گلاسه',this)">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=80&h=80&fit=crop&auto=format" alt="گلاسه">
+        <span class="catlbl">گلاسه</span>
+      </div>
+      <div class="catpill" data-c="میلک شیک" onclick="setC('میلک شیک',this)">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=80&h=80&fit=crop&auto=format" alt="میلک شیک">
+        <span class="catlbl">میلک‌شیک</span>
+      </div>
+      <div class="catpill" data-c="فالوده" onclick="setC('فالوده',this)">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?w=80&h=80&fit=crop&auto=format" alt="فالوده">
+        <span class="catlbl">فالوده</span>
+      </div>
+      <div class="catpill" data-c="دسر" onclick="setC('دسر',this)">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1551529834-525807d6b4f3?w=80&h=80&fit=crop&auto=format" alt="دسر">
+        <span class="catlbl">دسر</span>
+      </div>
+    </div>
+
+
+
+    <!-- PRODUCTS -->
+    <div class="sech">
+      <div class="sect" id="ptitle">منوی کامل</div>
+    </div>
+    <div class="prodgrid" id="prodgrid"></div>
+    <div style="height:14px"></div>
+  </div>
+
+  <!-- CART -->
+  <div class="pg" id="pg-cart">
+    <div class="pgi">
+      <div class="pgtitle">🛒 سبد خرید</div>
+      <div id="cartb"></div>
+    </div>
+  </div>
+
+  <!-- SUPPORT -->
+  <div class="pg" id="pg-support">
+    <div class="pgi">
+      <div class="pgtitle">💬 پشتیبانی</div>
+      <div class="supcard" onclick="window.location.href='tel:09144524740'">
+        <div class="supico" style="background:rgba(126,236,212,0.1)">📞</div>
+        <div class="supinf"><h4>تماس تلفنی</h4><p>09144524740 · ۷ روز هفته</p></div>
+        <span class="suparr">←</span>
+      </div>
+      <div class="supcard" onclick="tst('📧 support@jafarnezad.ir')">
+        <div class="supico" style="background:rgba(136,212,248,0.1)">📧</div>
+        <div class="supinf"><h4>ایمیل پشتیبانی</h4><p>پاسخ در کمتر از ۲۴ ساعت</p></div>
+        <span class="suparr">←</span>
+      </div>
+      <div class="supcard" onclick="tst('📸 @jafarnezad_icecream')">
+        <div class="supico" style="background:rgba(200,168,248,0.1)">📸</div>
+        <div class="supinf"><h4>اینستاگرام</h4><p>@jafarnezad_icecream</p></div>
+        <span class="suparr">←</span>
+      </div>
+      <div class="supcard" onclick="window.open('https://wa.me/989144524740?text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%A8%D8%B3%D8%AA%D9%86%DB%8C%20%D8%AC%D8%B9%D9%81%D8%B1%D9%86%DA%98%D8%A7%D8%AF%20%D9%85%DB%8C%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%D9%85%20%D8%A8%D9%BE%D8%B1%D8%B3%D9%85','_blank')">
+        <div class="supico" style="background:rgba(37,211,102,0.12)">💬</div>
+        <div class="supinf"><h4>واتساپ</h4><p>09144524740 · پاسخ فوری</p></div>
+        <span class="suparr">←</span>
+      </div>
+      <div class="chatbox">
+        <div class="chathdr">
+          <div class="chatava">🤖</div>
+          <div>
+            <div style="font-size:14px;font-weight:700">دستیار جعفرنژاد</div>
+            <div class="chatonline">آنلاین · آماده کمک</div>
+          </div>
+        </div>
+        <div class="chatmsgs" id="chatmsgs">
+          <div class="cmsg bot">سلام! 👋 به پشتیبانی جعفرنژاد خوش اومدید.</div>
+        </div>
+        <div class="chatinrow">
+          <input class="chatin" id="chatin" placeholder="پیامتون رو بنویسید..." onkeydown="if(event.key==='Enter')sendMsg()">
+          <button class="sendbtn" onclick="sendMsg()">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="pg" id="pg-profile">
+    <div class="pgi">
+      <div class="profhero">
+        <div class="phrow">
+          <div class="phava" id="pava">👤</div>
+          <div>
+            <div class="phname" id="pname">خوش اومدی!</div>
+            <div class="phsub" id="psub">برای سفارش وارد شوید</div>
+          </div>
+        </div>
+        <div class="profstats">
+          <div class="pstat"><div class="pstv">۰</div><div class="pstl">سفارش</div></div>
+          <div class="pstat"><div class="pstv">⭐۴.۹</div><div class="pstl">امتیاز</div></div>
+          <div class="pstat"><div class="pstv">۰ت</div><div class="pstl">صرفه‌جویی</div></div>
+        </div>
+      </div>
+      <div class="mnu" onclick="openLM()"><div class="mico">📱</div><span class="mlbl" id="lml">ورود / ثبت‌نام</span><span class="marr">←</span></div>
+      <div class="mnu" onclick="goP('cart')"><div class="mico">🛒</div><span class="mlbl">سبد خرید</span><span class="marr">←</span></div>
+      <div class="mnu" onclick="tst('تاریخچه سفارش‌ها به زودی...')"><div class="mico">📋</div><span class="mlbl">تاریخچه سفارش‌ها</span><span class="marr">←</span></div>
+      <div class="mnu" onclick="goP('support')"><div class="mico">💬</div><span class="mlbl">پشتیبانی</span><span class="marr">←</span></div>
+      <div class="mnu" onclick="tst('آدرس‌های ذخیره شده')"><div class="mico">📍</div><span class="mlbl">آدرس‌های من</span><span class="marr">←</span></div>
+      <div class="mnu" onclick="tst('تنظیمات حساب')"><div class="mico">⚙️</div><span class="mlbl">تنظیمات</span><span class="marr">←</span></div>
+    </div>
+  </div>
+
+  <!-- FLOATING NAV -->
+  <nav class="floatnav">
+    <div class="fnav on" id="fn-home" onclick="goP('home')"><span class="fnico">🏠</span><span class="fnlbl">خانه</span></div>
+    <div class="fnav" id="fn-cart" onclick="goP('cart')" style="position:relative"><span class="fnico">🛒</span><span class="fnlbl">سبد</span><span class="fnbadge" id="fnbg">0</span></div>
+    <div class="fnav" id="fn-support" onclick="goP('support')"><span class="fnico">💬</span><span class="fnlbl">پشتیبانی</span></div>
+    <div class="fnav" id="fn-profile" onclick="goP('profile')"><span class="fnico">👤</span><span class="fnlbl">حساب</span></div>
+  </nav>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="movl" id="pm" onclick="closePM(event)">
+  <div class="msheet">
+    <div class="mhandle"></div>
+    <span class="pmodem" id="pme">🍦</span>
+    <div class="pmodn" id="pmn"></div>
+    <div class="pmodd" id="pmd"></div>
+    <div class="pmodpw"><span class="pmodpl">قیمت</span><span class="pmodpv" id="pmpv"></span></div>
+    <button class="pmodadd" onclick="addFM()">+ افزودن به سبد خرید</button>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="movl" id="lm" onclick="closeLM(event)">
+  <div class="msheet">
+    <div class="mhandle"></div>
+    <div class="llogo">
+      <span class="llo-ico">🍦</span>
+      <div class="lh2">ورود به جعفرنژاد</div>
+      <div class="lsub">با شماره موبایل وارد شوید</div>
+    </div>
+    <div class="lstp on" id="ls-ph">
+      <label class="inlbl">شماره موبایل</label>
+      <div class="phrow">
+        <div class="pfx">🇮🇷 +98</div>
+        <input class="finp" type="tel" id="phin" placeholder="9XXXXXXXXX" maxlength="10">
+      </div>
+      <button class="pbtn" onclick="sendOTP()">📲 ارسال کد تأیید</button>
+    </div>
+    <div class="lstp" id="ls-ot">
+      <p style="text-align:center;font-size:13px;color:var(--t2);margin-bottom:18px">کد ۵ رقمی ارسال‌شده به <strong id="phsh" style="color:var(--gold2)"></strong></p>
+      <div class="otprow">
+        <input class="otpin" type="tel" maxlength="1" id="o0" oninput="om(0)" onkeydown="ob(0,event)">
+        <input class="otpin" type="tel" maxlength="1" id="o1" oninput="om(1)" onkeydown="ob(1,event)">
+        <input class="otpin" type="tel" maxlength="1" id="o2" oninput="om(2)" onkeydown="ob(2,event)">
+        <input class="otpin" type="tel" maxlength="1" id="o3" oninput="om(3)" onkeydown="ob(3,event)">
+        <input class="otpin" type="tel" maxlength="1" id="o4" oninput="om(4)" onkeydown="ob(4,event)">
+      </div>
+      <button class="pbtn" onclick="verOTP()">✅ تأیید و ورود</button>
+      <div class="resnd">ارسال مجدد در <span id="ocd">01:30</span></div>
+    </div>
+    <div class="lstp" id="ls-ok">
+      <div class="okwrp">
+        <span class="okico">🎉</span>
+        <div class="okh">خوش اومدی!</div>
+        <div class="okp">با موفقیت وارد شدید</div>
+        <button class="pbtn" style="margin-top:28px" onclick="finL()">🍦 شروع سفارش</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tst"></div>
+
+<!-- CHECKOUT MODAL -->
+<div class="movl" id="chkm" onclick="closeChkM(event)">
+  <div class="msheet" style="max-height:92vh">
+    <div class="mhandle"></div>
+
+    <!-- Step indicator -->
+    <div class="step-indicator">
+      <div class="step-dot active" id="sdot1">۱</div>
+      <div class="step-line" id="sline1"></div>
+      <div class="step-dot" id="sdot2">۲</div>
+      <div class="step-line" id="sline2"></div>
+      <div class="step-dot" id="sdot3">۳</div>
+      <div class="step-line" id="sline3"></div>
+      <div class="step-dot" id="sdot4">۴</div>
+    </div>
+
+    <!-- STEP 1: Delivery type -->
+    <div class="cstep on" id="cs1">
+      <div class="pmodn" style="text-align:right;margin-bottom:6px">🛵 نحوه دریافت</div>
+      <p style="font-size:13px;color:var(--t2);margin-bottom:18px">چطور سفارشتو دریافت می‌کنی؟</p>
+      <div class="delivery-options">
+        <div class="del-opt selected" id="del-send" onclick="selDel('send')">
+          <span class="do-icon">🛵</span>
+          <div class="do-label">ارسال به درب</div>
+          <div class="do-time">۳۰–۴۵ دقیقه</div>
+        </div>
+        <div class="del-opt" id="del-take" onclick="selDel('take')">
+          <span class="do-icon">🏪</span>
+          <div class="do-label">تحویل حضوری</div>
+          <div class="do-time">بدون انتظار</div>
+        </div>
+      </div>
+      <button class="pbtn" onclick="goCS(2)">ادامه ←</button>
+    </div>
+
+    <!-- STEP 2: Address -->
+    <div class="cstep" id="cs2">
+      <div class="pmodn" style="text-align:right;margin-bottom:6px">📍 آدرس تحویل</div>
+      <p style="font-size:13px;color:var(--t2);margin-bottom:18px">اطلاعات آدرس را کامل وارد کنید</p>
+
+      <div class="addr-section" id="addr-fields">
+        <div class="finp-wrap">
+          <span class="finp-icon">🏙️</span>
+          <input class="finp" id="f-city" type="text" placeholder="شهر">
+        </div>
+        <div class="finp-wrap">
+          <span class="finp-icon">🗺️</span>
+          <input class="finp" id="f-street" type="text" placeholder="خیابان اصلی">
+        </div>
+        <div class="finp-wrap">
+          <span class="finp-icon">📌</span>
+          <input class="finp" id="f-alley" type="text" placeholder="کوچه / بن‌بست (اختیاری)">
+        </div>
+        <div class="addr-row">
+          <input class="finp" id="f-unit" type="tel" placeholder="واحد" style="text-align:center">
+          <input class="finp" id="f-plaque" type="tel" placeholder="پلاک" style="text-align:center">
+        </div>
+        <div class="finp-wrap">
+          <span class="finp-icon">📮</span>
+          <input class="finp ltr-inp" id="f-postal" type="tel" placeholder="کد پستی ۱۰ رقمی" maxlength="10">
+        </div>
+        <div class="finp-wrap">
+          <span class="finp-icon">📞</span>
+          <input class="finp ltr-inp" id="f-phone" type="tel" placeholder="شماره تماس گیرنده">
+        </div>
+        <div class="finp-wrap">
+          <span class="finp-icon">📝</span>
+          <input class="finp" id="f-note" type="text" placeholder="توضیحات (اختیاری) — مثلاً: زنگ بزنید">
+        </div>
+      </div>
+
+      <div id="takeway-info" style="display:none">
+        <div style="background:rgba(126,236,212,0.08);border:1px solid rgba(126,236,212,0.2);border-radius:16px;padding:16px;text-align:center">
+          <div style="font-size:32px;margin-bottom:8px">🏪</div>
+          <div style="font-weight:700;margin-bottom:4px">آدرس فروشگاه</div>
+          <div style="font-size:13px;color:var(--t2);line-height:1.8">تهران، خیابان ولیعصر، بالاتر از میدان ونک<br>پلاک ۲۱۴ — طبقه همکف<br>📞 09144524740</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:18px">
+        <button class="pbtn" style="background:var(--glass2);color:var(--t1);box-shadow:none;flex:0 0 80px" onclick="goCS(1)">← برگشت</button>
+        <button class="pbtn" style="flex:1" onclick="goCS(3)">ادامه ←</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Payment -->
+    <div class="cstep" id="cs3">
+      <div class="pmodn" style="text-align:right;margin-bottom:6px">💳 روش پرداخت</div>
+      <p style="font-size:13px;color:var(--t2);margin-bottom:6px">نحوه پرداخت سفارش را انتخاب کنید</p>
+
+      <div class="pay-opts">
+        <!-- پرداخت در منزل -->
+        <div class="pay-opt on" id="pay-cash" onclick="selPay('cash')">
+          <div class="pay-opt-ico" style="background:rgba(126,236,212,0.12)">💵</div>
+          <div class="pay-opt-info">
+            <div class="pay-opt-title">پرداخت در منزل</div>
+            <div class="pay-opt-sub">نقد یا کارتخوان هنگام تحویل</div>
+          </div>
+          <div class="pay-radio"></div>
+        </div>
+        <!-- پرداخت آنلاین -->
+        <div class="pay-opt" id="pay-online" onclick="selPay('online')">
+          <div class="pay-opt-ico" style="background:rgba(136,212,248,0.12)">🏦</div>
+          <div class="pay-opt-info">
+            <div class="pay-opt-title">پرداخت آنلاین</div>
+            <div class="pay-opt-sub">درگاه بانکی — شتاب، شاپرک</div>
+          </div>
+          <div class="pay-radio"></div>
+        </div>
+        <!-- کارت به کارت -->
+        <div class="pay-opt" id="pay-card" onclick="selPay('card')">
+          <div class="pay-opt-ico" style="background:rgba(200,168,248,0.12)">💳</div>
+          <div class="pay-opt-info">
+            <div class="pay-opt-title">کارت به کارت</div>
+            <div class="pay-opt-sub">انتقال به شماره کارت و ارسال رسید</div>
+          </div>
+          <div class="pay-radio"></div>
+        </div>
+      </div>
+
+      <!-- card-to-card info -->
+      <div class="card-form" id="card-info-box">
+        <div style="background:rgba(200,168,248,0.08);border:1px solid rgba(200,168,248,0.2);border-radius:14px;padding:16px;font-size:13px;line-height:1.9">
+          <div style="font-weight:700;margin-bottom:8px;color:var(--lav2)">💳 اطلاعات کارت</div>
+          <div>بانک: <strong>ملی ایران</strong></div>
+          <div>شماره کارت: <strong style="letter-spacing:2px;font-size:15px;color:var(--gold2)">6037 9910 1234 5678</strong></div>
+          <div>به نام: <strong>جعفرنژاد</strong></div>
+          <div style="margin-top:10px;font-size:11px;color:var(--t3)">پس از انتقال، شماره پیگیری رو در توضیحات بنویسید</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:18px">
+        <button class="pbtn" style="background:var(--glass2);color:var(--t1);box-shadow:none;flex:0 0 80px" onclick="goCS(2)">← برگشت</button>
+        <button class="pbtn" style="flex:1" onclick="goCS(4)">ادامه ←</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Confirm -->
+    <div class="cstep" id="cs4">
+      <div class="pmodn" style="text-align:right;margin-bottom:6px">✅ تأیید نهایی</div>
+      <p style="font-size:13px;color:var(--t2);margin-bottom:16px">بررسی نهایی سفارش</p>
+
+      <div class="order-summary-box" id="order-summary-box"></div>
+
+      <div class="addr-section-title" style="margin:14px 0 8px">📍 آدرس تحویل</div>
+      <div style="background:rgba(0,0,0,0.2);border:1px solid var(--bdr);border-radius:14px;padding:14px;margin-bottom:12px;font-size:13px;color:var(--t2);line-height:1.8" id="addr-preview"></div>
+
+      <div class="addr-section-title" style="margin:0 0 8px">💳 روش پرداخت</div>
+      <div style="background:rgba(0,0,0,0.2);border:1px solid var(--bdr);border-radius:14px;padding:14px;margin-bottom:18px;font-size:13px;color:var(--t2)" id="pay-preview"></div>
+
+      <div style="display:flex;gap:10px">
+        <button class="pbtn" style="background:var(--glass2);color:var(--t1);box-shadow:none;flex:0 0 80px" onclick="goCS(3)">← برگشت</button>
+        <button class="pbtn" style="flex:1" onclick="placeOrder()">🚀 ثبت سفارش</button>
+      </div>
+    </div>
+
+    <!-- STEP 5: Success -->
+    <div class="cstep" id="cs5">
+      <div class="order-success">
+        <div class="ok-ring">🎉</div>
+        <h3>سفارش ثبت شد!</h3>
+        <p>سفارش شما با موفقیت ثبت شد<br>و در حال آماده‌سازی است 🍦</p>
+        <div class="tracking-code">
+          <div class="tc-label">کد پیگیری سفارش</div>
+          <div class="tc-code" id="track-code">—</div>
+        </div>
+        <div id="pay-method-note" style="font-size:13px;color:var(--t2);margin-top:12px;padding:12px;background:rgba(0,0,0,0.2);border-radius:12px;line-height:1.7"></div>
+        <p style="font-size:12px;color:var(--t3);margin-top:10px">این کد را نزد خود نگه دارید</p>
+        <button class="pbtn" style="margin-top:20px" onclick="closeChkAfterSuccess()">متوجه شدم 👍</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SMS NOTIFICATION -->
+<div id="sms-notif">
+  <button class="sms-dismiss" onclick="dismissSMS()">✕</button>
+  <div class="sms-top">
+    <div class="sms-app-icon">💬</div>
+    <div>
+      <div class="sms-app-name">پیام کوتاه</div>
+    </div>
+    <div class="sms-time" id="sms-time">هم‌اکنون</div>
+  </div>
+  <div class="sms-sender">جعفرنژاد</div>
+  <div class="sms-body">کد تأیید شما: <strong id="sms-code">-----</strong><br><span style="font-size:12px;opacity:0.6">این کد ۲ دقیقه اعتبار دارد.</span></div>
+</div>
+
+<script>
+const D=[
+  // آبمیوه
+  {n:'هویج بستنی',c:'آبمیوه',e:'🥕',p:40000,d:'هویج تازه با بستنی خامه‌ای',g:'ga',img:'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=300&h=300&fit=crop'},
+  {n:'طالبی بستنی',c:'آبمیوه',e:'🍈',p:50000,d:'طالبی رسیده با بستنی',g:'gd',img:'https://images.unsplash.com/photo-1571575173700-afb9492e6a50?w=300&h=300&fit=crop'},
+  {n:'شیر موز بستنی',c:'آبمیوه',e:'🍌',p:50000,d:'شیر موز با بستنی خوشمزه',g:'gg',img:'https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=300&h=300&fit=crop'},
+  {n:'پرتقال بستنی',c:'آبمیوه',e:'🍊',p:70000,d:'پرتقال تازه فشرده با بستنی',g:'ga',img:'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=300&h=300&fit=crop'},
+  {n:'انبه بستنی',c:'آبمیوه',e:'🥭',p:70000,d:'انبه گرمسیری با بستنی',g:'gd',img:'https://images.unsplash.com/photo-1553279768-865429fa0078?w=300&h=300&fit=crop'},
+  {n:'آناناس بستنی',c:'آبمیوه',e:'🍍',p:70000,d:'آناناس شیرین با بستنی',g:'gc',img:'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?w=300&h=300&fit=crop'},
+  {n:'توت فرنگی بستنی',c:'آبمیوه',e:'🍓',p:70000,d:'توت فرنگی تازه با بستنی',g:'ga',img:'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=300&h=300&fit=crop'},
+  {n:'زرشک بستنی',c:'آبمیوه',e:'🍇',p:60000,d:'زرشک ترش با بستنی شیرین',g:'ge',img:'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=300&h=300&fit=crop'},
+  {n:'آلبالو بستنی',c:'آبمیوه',e:'🍒',p:60000,d:'آلبالو تازه با بستنی',g:'ga',img:'https://images.unsplash.com/photo-1528821128474-27f963b062bf?w=300&h=300&fit=crop'},
+  {n:'انار بستنی',c:'آبمیوه',e:'❤️',p:70000,d:'انار دانه‌ای با بستنی',g:'ga',img:'https://images.unsplash.com/photo-1615485291234-9d694218aeb3?w=300&h=300&fit=crop'},
+  {n:'سیب بستنی',c:'آبمیوه',e:'🍎',p:60000,d:'سیب تازه با بستنی',g:'gc',img:'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=300&h=300&fit=crop'},
+  {n:'کرفس بستنی',c:'آبمیوه',e:'🥬',p:60000,d:'کرفس سبز با بستنی',g:'gc',img:'https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=300&h=300&fit=crop'},
+  // آبمیوه میکس
+  {n:'آبمیوه مخصوص',c:'آبمیوه میکس',e:'🍹',p:70000,d:'ترکیب ویژه میوه‌های تازه',g:'gc',img:'https://images.unsplash.com/photo-1546173159-315724a31696?w=300&h=300&fit=crop'},
+  {n:'انبه انار',c:'آبمیوه میکس',e:'🥭',p:70000,d:'انبه با انار دانه‌ای',g:'ga',img:'https://images.unsplash.com/photo-1553279768-865429fa0078?w=300&h=300&fit=crop'},
+  {n:'انبه پرتقال',c:'آبمیوه میکس',e:'🍊',p:70000,d:'انبه با پرتقال گرمسیری',g:'gd',img:'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=300&h=300&fit=crop'},
+  {n:'انبه توت فرنگی',c:'آبمیوه میکس',e:'🍓',p:70000,d:'انبه با توت فرنگی تازه',g:'ga',img:'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=300&h=300&fit=crop'},
+  {n:'انبه موز',c:'آبمیوه میکس',e:'🍌',p:70000,d:'انبه با موز شیرین',g:'gg',img:'https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=300&h=300&fit=crop'},
+  {n:'سیب کرفس',c:'آبمیوه میکس',e:'🍎',p:60000,d:'سیب با کرفس تازه',g:'gc',img:'https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=300&h=300&fit=crop'},
+  {n:'سیب موز',c:'آبمیوه میکس',e:'🍌',p:60000,d:'سیب با موز رسیده',g:'gg',img:'https://images.unsplash.com/photo-1571575173700-afb9492e6a50?w=300&h=300&fit=crop'},
+  {n:'زرشک آلبالو',c:'آبمیوه میکس',e:'🍒',p:60000,d:'زرشک با آلبالو ترش',g:'ga',img:'https://images.unsplash.com/photo-1528821128474-27f963b062bf?w=300&h=300&fit=crop'},
+  {n:'موز توت فرنگی',c:'آبمیوه میکس',e:'🍓',p:70000,d:'موز با توت فرنگی',g:'ga',img:'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=300&h=300&fit=crop'},
+  // آبمیوه بطری
+  {n:'زرشک ۱.۳ لیتری',c:'آبمیوه بطری',e:'🍾',p:250000,d:'آبمیوه زرشک — بطری ۱.۳ لیتری',g:'ga',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'زرشک یک لیتری',c:'آبمیوه بطری',e:'🍾',p:200000,d:'آبمیوه زرشک — بطری ۱ لیتری',g:'ga',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'زرشک نیم لیتری',c:'آبمیوه بطری',e:'🍾',p:100000,d:'آبمیوه زرشک — بطری ۰.۵ لیتری',g:'ga',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'انبه ۱.۳ لیتری',c:'آبمیوه بطری',e:'🍾',p:250000,d:'آبمیوه انبه — بطری ۱.۳ لیتری',g:'gd',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'انبه یک لیتری',c:'آبمیوه بطری',e:'🍾',p:200000,d:'آبمیوه انبه — بطری ۱ لیتری',g:'gd',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'انبه نیم لیتری',c:'آبمیوه بطری',e:'🍾',p:100000,d:'آبمیوه انبه — بطری ۰.۵ لیتری',g:'gd',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'پرتقال ۱.۳ لیتری',c:'آبمیوه بطری',e:'🍾',p:250000,d:'آبمیوه پرتقال — بطری ۱.۳ لیتری',g:'ga',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'پرتقال یک لیتری',c:'آبمیوه بطری',e:'🍾',p:200000,d:'آبمیوه پرتقال — بطری ۱ لیتری',g:'ga',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'پرتقال نیم لیتری',c:'آبمیوه بطری',e:'🍾',p:100000,d:'آبمیوه پرتقال — بطری ۰.۵ لیتری',g:'ga',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'آناناس ۱.۳ لیتری',c:'آبمیوه بطری',e:'🍾',p:250000,d:'آبمیوه آناناس — بطری ۱.۳ لیتری',g:'gc',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'آناناس یک لیتری',c:'آبمیوه بطری',e:'🍾',p:200000,d:'آبمیوه آناناس — بطری ۱ لیتری',g:'gc',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'آناناس نیم لیتری',c:'آبمیوه بطری',e:'🍾',p:100000,d:'آبمیوه آناناس — بطری ۰.۵ لیتری',g:'gc',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'طالبی ۱.۳ لیتری',c:'آبمیوه بطری',e:'🍾',p:200000,d:'آبمیوه طالبی — بطری ۱.۳ لیتری',g:'gg',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'طالبی یک لیتری',c:'آبمیوه بطری',e:'🍾',p:170000,d:'آبمیوه طالبی — بطری ۱ لیتری',g:'gg',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'طالبی نیم لیتری',c:'آبمیوه بطری',e:'🍾',p:90000,d:'آبمیوه طالبی — بطری ۰.۵ لیتری',g:'gg',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'هویج ۱.۳ لیتری',c:'آبمیوه بطری',e:'🍾',p:150000,d:'آبمیوه هویج — بطری ۱.۳ لیتری',g:'ga',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'هویج یک لیتری',c:'آبمیوه بطری',e:'🍾',p:120000,d:'آبمیوه هویج — بطری ۱ لیتری',g:'ga',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  {n:'هویج نیم لیتری',c:'آبمیوه بطری',e:'🍾',p:75000,d:'آبمیوه هویج — بطری ۰.۵ لیتری',g:'ga',img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&h=300&fit=crop'},
+  // بستنی
+  {n:'بستنی مخصوص',c:'بستنی',e:'🍦',p:120000,d:'بستنی ویژه جعفرنژاد',g:'gd',img:'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=300&fit=crop'},
+  {n:'سان شاین',c:'بستنی',e:'☀️',p:130000,d:'بستنی سان شاین خاص',g:'gg',img:'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop'},
+  {n:'باقلوا بستنی',c:'بستنی',e:'🧁',p:150000,d:'بستنی با باقلوا سنتی',g:'gg',img:'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop'},
+  {n:'کیک بستنی',c:'بستنی',e:'🎂',p:150000,d:'کیک با بستنی خامه‌ای',g:'gd',img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=300&fit=crop'},
+  {n:'بستنی پسته‌ای',c:'بستنی',e:'🌿',p:100000,d:'بستنی با پسته ایرانی اصل',g:'gc',img:'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=300&fit=crop'},
+  {n:'بستنی گردویی',c:'بستنی',e:'🌰',p:100000,d:'بستنی با گردوی تازه',g:'gd',img:'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop'},
+  {n:'بستنی شکلاتی',c:'بستنی',e:'🍫',p:40000,d:'بستنی شکلات تلخ',g:'gd',img:'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop'},
+  {n:'بستنی میوه‌ای',c:'بستنی',e:'🍓',p:160000,d:'بستنی با میوه‌های تازه فصل',g:'ga',img:'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=300&fit=crop'},
+  {n:'موز بستنی',c:'بستنی',e:'🍌',p:100000,d:'موز با بستنی خامه‌ای',g:'gg',img:'https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=300&h=300&fit=crop'},
+  {n:'بستنی ژله‌ای',c:'بستنی',e:'🟣',p:100000,d:'بستنی با ژله رنگارنگ',g:'ge',img:'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop'},
+  {n:'قیفی زعفرانی مشعلی',c:'بستنی',e:'🍦',p:35000,d:'قیفی زعفرانی با نان مشعلی',g:'gg',img:'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=300&fit=crop'},
+  {n:'قیفی زعفرانی قندی',c:'بستنی',e:'🍦',p:35000,d:'قیفی زعفرانی با نان قندی',g:'gg',img:'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=300&fit=crop'},
+  {n:'قیفی شکلاتی مشعلی',c:'بستنی',e:'🍦',p:40000,d:'قیفی شکلاتی با نان مشعلی',g:'gd',img:'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop'},
+  {n:'قیفی شکلاتی قندی',c:'بستنی',e:'🍦',p:40000,d:'قیفی شکلاتی با نان قندی',g:'gd',img:'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop'},
+  {n:'لیوانی کوچک زعفرانی',c:'بستنی',e:'🥤',p:35000,d:'بستنی زعفرانی لیوانی کوچک',g:'gg',img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=300&fit=crop'},
+  {n:'لیوانی کوچک شکلاتی',c:'بستنی',e:'🥤',p:40000,d:'بستنی شکلاتی لیوانی کوچک',g:'gd',img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=300&fit=crop'},
+  {n:'لیوانی بزرگ زعفرانی',c:'بستنی',e:'🥤',p:60000,d:'بستنی زعفرانی لیوانی بزرگ',g:'gg',img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=300&fit=crop'},
+  {n:'لیوانی بزرگ شکلاتی',c:'بستنی',e:'🥤',p:70000,d:'بستنی شکلاتی لیوانی بزرگ',g:'gd',img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=300&fit=crop'},
+  {n:'نیم کیلو زعفرانی',c:'بستنی',e:'📦',p:100000,d:'بستنی زعفرانی نیم کیلویی',g:'gg',img:'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=300&fit=crop'},
+  {n:'نیم کیلو شکلاتی',c:'بستنی',e:'📦',p:120000,d:'بستنی شکلاتی نیم کیلویی',g:'gd',img:'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop'},
+  {n:'یک کیلو زعفرانی',c:'بستنی',e:'📦',p:200000,d:'بستنی زعفرانی یک کیلویی',g:'gg',img:'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=300&fit=crop'},
+  {n:'یک کیلو شکلاتی',c:'بستنی',e:'📦',p:240000,d:'بستنی شکلاتی یک کیلویی',g:'gd',img:'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop'},
+  {n:'حصیری زعفرانی',c:'بستنی',e:'🧺',p:40000,d:'بستنی سنتی زعفرانی حصیری',g:'gg',img:'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=300&fit=crop'},
+  {n:'حصیری زعفران پسته',c:'بستنی',e:'🧺',p:50000,d:'بستنی زعفران پسته حصیری',g:'gg',img:'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=300&fit=crop'},
+  // ویتامینه
+  {n:'معجون',c:'ویتامینه',e:'💪',p:150000,d:'معجون انرژی‌زای جعفرنژاد',g:'gd',img:'https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=300&h=300&fit=crop'},
+  {n:'معجون ویژه',c:'ویتامینه',e:'⭐',p:210000,d:'معجون ویژه با مواد مغذی',g:'gg',img:'https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=300&h=300&fit=crop'},
+  {n:'شیر پسته',c:'ویتامینه',e:'🥛',p:130000,d:'شیر پسته تازه اصل',g:'gc',img:'https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?w=300&h=300&fit=crop'},
+  {n:'شیر پسته مخصوص',c:'ویتامینه',e:'🥛',p:150000,d:'شیر پسته مخصوص جعفرنژاد',g:'gc',img:'https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?w=300&h=300&fit=crop'},
+  {n:'شیر پسته نوتلا',c:'ویتامینه',e:'🥛',p:150000,d:'شیر پسته با نوتلا',g:'gd',img:'https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?w=300&h=300&fit=crop'},
+  {n:'شیر پسته توت فرنگی',c:'ویتامینه',e:'🥛',p:140000,d:'شیر پسته با توت فرنگی',g:'ga',img:'https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?w=300&h=300&fit=crop'},
+  {n:'شیر پسته هویج',c:'ویتامینه',e:'🥛',p:140000,d:'شیر پسته با هویج',g:'ga',img:'https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?w=300&h=300&fit=crop'},
+  {n:'شیر موز',c:'ویتامینه',e:'🍌',p:50000,d:'شیر موز تازه',g:'gg',img:'https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=300&h=300&fit=crop'},
+  {n:'شیر موز مخصوص',c:'ویتامینه',e:'🍌',p:120000,d:'شیر موز مخصوص جعفرنژاد',g:'gg',img:'https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=300&h=300&fit=crop'},
+  {n:'شیر انبه',c:'ویتامینه',e:'🥭',p:70000,d:'شیر انبه گرمسیری',g:'gd',img:'https://images.unsplash.com/photo-1553279768-865429fa0078?w=300&h=300&fit=crop'},
+  {n:'شیر خرما',c:'ویتامینه',e:'🌴',p:100000,d:'شیر خرما مقوی',g:'gd',img:'https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?w=300&h=300&fit=crop'},
+  {n:'شیر موز خرما',c:'ویتامینه',e:'🍌',p:100000,d:'شیر موز با خرما',g:'gg',img:'https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=300&h=300&fit=crop'},
+  // آیس پک
+  {n:'آیس پک شکلاتی',c:'آیس پک',e:'🧊',p:130000,d:'آیس پک با طعم شکلات',g:'gd',img:'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop'},
+  {n:'آیس پک توت فرنگی',c:'آیس پک',e:'🍓',p:130000,d:'آیس پک با طعم توت فرنگی',g:'ga',img:'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop'},
+  {n:'آیس پک موزی',c:'آیس پک',e:'🍌',p:130000,d:'آیس پک با طعم موز',g:'gg',img:'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop'},
+  {n:'آیس پک طالبی',c:'آیس پک',e:'🍈',p:130000,d:'آیس پک با طعم طالبی',g:'gg',img:'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop'},
+  {n:'آیس پک انبه',c:'آیس پک',e:'🥭',p:130000,d:'آیس پک با طعم انبه',g:'gd',img:'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop'},
+  {n:'آیس پک وانیل',c:'آیس پک',e:'🍦',p:130000,d:'آیس پک با طعم وانیل',g:'gg',img:'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=300&h=300&fit=crop'},
+  // گلاسه
+  {n:'گلاسه مخصوص',c:'گلاسه',e:'🍨',p:130000,d:'گلاسه ویژه جعفرنژاد',g:'gd',img:'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop'},
+  {n:'شکلات گلاسه',c:'گلاسه',e:'🍫',p:130000,d:'گلاسه با روکش شکلات بلژیک',g:'gd',img:'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop'},
+  {n:'طالبی گلاسه',c:'گلاسه',e:'🍈',p:130000,d:'گلاسه طالبی خامه‌ای',g:'gg',img:'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop'},
+  {n:'کافه گلاسه',c:'گلاسه',e:'☕',p:130000,d:'گلاسه با طعم قهوه',g:'gd',img:'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop'},
+  {n:'توت فرنگی گلاسه',c:'گلاسه',e:'🍓',p:130000,d:'گلاسه توت فرنگی تازه',g:'ga',img:'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop'},
+  {n:'شاتوت گلاسه',c:'گلاسه',e:'🫐',p:130000,d:'گلاسه شاتوت تازه',g:'ge',img:'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop'},
+  {n:'اورنج گلاسه',c:'گلاسه',e:'🍊',p:130000,d:'گلاسه پرتقال خوشمزه',g:'ga',img:'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop'},
+  // میلک شیک
+  {n:'شیک نوتلا',c:'میلک شیک',e:'🥤',p:140000,d:'میلک شیک نوتلا خامه‌ای',g:'gd',img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=300&fit=crop'},
+  {n:'میلک شیک شکلاتی',c:'میلک شیک',e:'🥤',p:130000,d:'میلک شیک شکلات تلخ با خامه',g:'gd',img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=300&fit=crop'},
+  {n:'میلک شیک توت فرنگی',c:'میلک شیک',e:'🥤',p:130000,d:'میلک شیک توت فرنگی تازه',g:'ga',img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=300&fit=crop'},
+  {n:'میلک شیک بیسکوئیت',c:'میلک شیک',e:'🥤',p:130000,d:'میلک شیک با بیسکوئیت اوریو',g:'gd',img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=300&fit=crop'},
+  {n:'میلک شیک قهوه',c:'میلک شیک',e:'☕',p:130000,d:'میلک شیک قهوه با خامه',g:'gd',img:'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=300&fit=crop'},
+  // فالوده
+  {n:'فالوده',c:'فالوده',e:'🍡',p:50000,d:'فالوده اصیل شیرازی',g:'gb',img:'https://images.unsplash.com/photo-1580915411954-282cb669e3e5?w=300&h=300&fit=crop'},
+  {n:'فالوده بستنی',c:'فالوده',e:'🍡',p:60000,d:'فالوده با بستنی زعفرانی',g:'gb',img:'https://images.unsplash.com/photo-1580915411954-282cb669e3e5?w=300&h=300&fit=crop'},
+  {n:'فالوده نیم کیلویی',c:'فالوده',e:'📦',p:100000,d:'فالوده نیم کیلو برای بردن',g:'gb',img:'https://images.unsplash.com/photo-1580915411954-282cb669e3e5?w=300&h=300&fit=crop'},
+  {n:'فالوده بستنی نیم کیلو',c:'فالوده',e:'📦',p:120000,d:'فالوده بستنی نیم کیلویی',g:'gb',img:'https://images.unsplash.com/photo-1580915411954-282cb669e3e5?w=300&h=300&fit=crop'},
+  {n:'فالوده یک کیلویی',c:'فالوده',e:'📦',p:200000,d:'فالوده یک کیلو',g:'gb',img:'https://images.unsplash.com/photo-1580915411954-282cb669e3e5?w=300&h=300&fit=crop'},
+  {n:'فالوده بستنی یک کیلو',c:'فالوده',e:'📦',p:240000,d:'فالوده بستنی یک کیلویی',g:'gb',img:'https://images.unsplash.com/photo-1580915411954-282cb669e3e5?w=300&h=300&fit=crop'},
+  // دسر
+  {n:'کیک یزدی',c:'دسر',e:'🥮',p:25000,d:'کیک یزدی سنتی نرم',g:'gg',img:'https://images.unsplash.com/photo-1551529834-525807d6b4f3?w=300&h=300&fit=crop'},
+  {n:'بامیه',c:'دسر',e:'🍩',p:60000,d:'بامیه سرخ شده با شربت',g:'gg',img:'https://images.unsplash.com/photo-1551529834-525807d6b4f3?w=300&h=300&fit=crop'},
+  {n:'باقلوا',c:'دسر',e:'🍯',p:70000,d:'باقلوا اصیل با پسته',g:'gg',img:'https://images.unsplash.com/photo-1551529834-525807d6b4f3?w=300&h=300&fit=crop'},
+  {n:'باقلوا کوچک',c:'دسر',e:'🍯',p:25000,d:'باقلوا کوچک با عسل',g:'gg',img:'https://images.unsplash.com/photo-1551529834-525807d6b4f3?w=300&h=300&fit=crop'},
+  {n:'نان خامه‌ای',c:'دسر',e:'🥐',p:70000,d:'نان خامه‌ای تازه',g:'gg',img:'https://images.unsplash.com/photo-1551529834-525807d6b4f3?w=300&h=300&fit=crop'},
+  {n:'موچی',c:'دسر',e:'🟡',p:90000,d:'موچی ژاپنی با بستنی',g:'gg',img:'https://images.unsplash.com/photo-1551529834-525807d6b4f3?w=300&h=300&fit=crop'},
+  {n:'کیک خیس',c:'دسر',e:'🎂',p:75000,d:'کیک خیس شکلاتی لذیذ',g:'gd',img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=300&fit=crop'},
+  {n:'کیک رولتی',c:'دسر',e:'🎂',p:70000,d:'رولت خامه‌ای با کاکائو',g:'gd',img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=300&fit=crop'},
+  {n:'سه گوش',c:'دسر',e:'🔺',p:80000,d:'شیرینی سه گوش با خامه',g:'gg',img:'https://images.unsplash.com/photo-1551529834-525807d6b4f3?w=300&h=300&fit=crop'},
+  {n:'کیک روکش شکلات',c:'دسر',e:'🍫',p:90000,d:'کیک با روکش شکلات بلژیک',g:'gd',img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=300&fit=crop'},
+  {n:'کیک تیرامیسو',c:'دسر',e:'☕',p:90000,d:'کیک تیرامیسو ایتالیایی',g:'gd',img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=300&fit=crop'},
+  {n:'کیک دبل چاکلت',c:'دسر',e:'🍫',p:100000,d:'کیک دو لایه شکلات',g:'gd',img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=300&fit=crop'},
+  {n:'کیک لوتوس',c:'دسر',e:'🌸',p:90000,d:'کیک لوتوس خامه‌ای',g:'gg',img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=300&fit=crop'},
+  {n:'کیک رد ولوت',c:'دسر',e:'❤️',p:90000,d:'کیک رد ولوت قرمز لذیذ',g:'ga',img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=300&fit=crop'},
+];
+
+let cart={}, curC='همه', loggedIn=false, userPh='';
+let MPD=null, OTP='', otpT;
+
+// HERO TYPING ANIMATION
+const heroTexts = ['بستنی تابستانی 🍦','میلک‌شیک خامه‌ای 🥤','فالوده شیرازی 🍡','آبمیوه تازه 🍊','دسر خوشمزه 🍰'];
+let hti=0, hci=0, hDel=false;
+function typeHero(){
+  const el=document.getElementById('hero-txt');
+  if(!el) return;
+  const cur=heroTexts[hti];
+  if(!hDel){
+    el.innerHTML=cur.substring(0,hci+1)+'<span class="cursor">|</span>';
+    hci++;
+    if(hci===cur.length){hDel=true;setTimeout(typeHero,1800);return;}
+    setTimeout(typeHero,80);
+  } else {
+    el.innerHTML=cur.substring(0,hci-1)+'<span class="cursor">|</span>';
+    hci--;
+    if(hci===0){hDel=false;hti=(hti+1)%heroTexts.length;setTimeout(typeHero,400);return;}
+    setTimeout(typeHero,40);
+  }
+}
+setTimeout(typeHero,500);
+
+// CLOCK
+function tick(){
+  const n=new Date(),pad=x=>String(x).padStart(2,'0');
+  document.getElementById('clk').textContent=`${pad(n.getHours())}:${pad(n.getMinutes())}:${pad(n.getSeconds())}`;
+  const D2=['یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنج‌شنبه','جمعه','شنبه'];
+  document.getElementById('clkd').textContent=`${D2[n.getDay()]} — ${n.getFullYear()-621}`;
+  const m=n.getHours()*60+n.getMinutes(),open=(m>=0&&m<=90)||(m>=540);
+  const b=document.getElementById('stbg');
+  b.className='statusbadge '+(open?'open':'shut');
+  document.getElementById('stxt').textContent=open?'باز هستیم':'بسته هستیم';
+}
+setInterval(tick,1000);tick();
+
+// SPLASH
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    const s=document.getElementById('splash');
+    s.style.transition='opacity 0.8s ease';s.style.opacity='0';
+    setTimeout(()=>{s.style.display='none';document.getElementById('app').style.display='block';renderG();},800);
+  },2700);
+});
+
+// NAV
+function goP(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.fnav').forEach(b=>b.classList.remove('on'));
+  document.getElementById('pg-'+id).classList.add('on');
+  document.getElementById('fn-'+id).classList.add('on');
+  if(id==='cart')renderCart();
+  window.scrollTo(0,0);
+}
+
+// PRODUCTS
+function renderG(cat=curC,q=''){
+  let list=D;
+  if(cat&&cat!=='همه')list=list.filter(x=>x.c===cat);
+  if(q)list=list.filter(x=>x.n.includes(q)||x.d.includes(q)||x.c.includes(q));
+  document.getElementById('ptitle').textContent=cat==='همه'?'منوی کامل':cat;
+  document.getElementById('prodgrid').innerHTML=list.map(x=>`
+    <div class="pcard" onclick="openPM('${x.n}','${x.d}','${x.e}',${x.p||0},'${x.img||''}')">
+      <div class="part ${x.g} pcard-art-wrap">
+        ${x.img
+          ? `<img src="${x.img}" class="pcard-img-real" alt="${x.n}" loading="lazy" onerror="this.parentElement.classList.add('img-err')">`
+          : `<span class="pcard-emo-only">${x.e}</span>`
+        }
+        <div class="pcard-hover-layer">
+          <div class="phl-icon">🛒</div>
+          <div class="phl-txt">افزودن به سبد</div>
+        </div>
+      </div>
+      <div class="pbody">
+        <div class="pcat">${x.c}</div>
+        <div class="pname">${x.n}</div>
+        <div class="pdesc">${x.d}</div>
+        <div class="pfoot">
+          <div class="pprice">${x.p ? x.p.toLocaleString('fa-IR') : 'تماس'}<small>${x.p?'ت':''}</small></div>
+          <button class="padd" onclick="event.stopPropagation();qadd('${x.n}','${x.e}',${x.p||0})">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function setC(cat,el){
+  curC=cat;
+  document.querySelectorAll('.catpill').forEach(c=>c.classList.remove('on'));
+  (el||document.querySelector(`[data-c="${cat}"]`))?.classList.add('on');
+  renderG(cat);
+}
+function doSearch(v){renderG(curC,v)}
+
+// CART
+function qadd(n,e,p){
+  if(!cart[n])cart[n]={n,e,p,q:0};
+  cart[n].q++;upd();tst(`${e} ${n} اضافه شد`);
+}
+function upd(){
+  const t=Object.values(cart).reduce((s,i)=>s+i.q,0);
+  ['hbg','fnbg'].forEach(id=>{const el=document.getElementById(id);el.textContent=t;el.style.display=t?'flex':'none'});
+}
+function renderCart(){
+  const items=Object.values(cart).filter(i=>i.q>0),el=document.getElementById('cartb');
+  if(!items.length){el.innerHTML=`<div class="cempty"><span class="cemico">🛒</span><p class="cemp">سبد خرید خالی است<br>از منو محصول اضافه کنید</p></div>`;return}
+  const sub=items.reduce((s,i)=>s+i.p*i.q,0),del=15000;
+  el.innerHTML=items.map(i=>`
+    <div class="citem">
+      <span class="cem">${i.e}</span>
+      <div class="cinf"><div class="cin">${i.n}</div><div class="cip">${(i.p*i.q).toLocaleString('fa-IR')} تومان</div></div>
+      <div class="qctl">
+        <button class="qbtn" onclick="chq('${i.n}',-1)">−</button>
+        <span class="qnum">${i.q}</span>
+        <button class="qbtn" onclick="chq('${i.n}',1)">+</button>
+      </div>
+    </div>`).join('')+
+  `<div class="csum">
+    <div class="crow"><span class="cl">جمع محصولات</span><span class="cv">${sub.toLocaleString('fa-IR')} ت</span></div>
+    <div class="crow"><span class="cl">هزینه ارسال</span><span class="cv">${(15000).toLocaleString('fa-IR')} ت</span></div>
+    <div class="ctot"><span class="ctrl">مجموع</span><span class="ctrv">${(sub+del).toLocaleString('fa-IR')} تومان</span></div>
+    <button class="chkbtn" onclick="checkout()">🚀 ثبت سفارش</button>
+  </div>`;
+}
+function chq(n,d){
+  if(!cart[n])return;cart[n].q=Math.max(0,cart[n].q+d);
+  if(!cart[n].q)delete cart[n];upd();renderCart();
+}
+function checkout(){
+  if(!loggedIn){tst('ابتدا وارد حساب شوید!');setTimeout(openLM,700);return}
+  const items=Object.values(cart).filter(i=>i.q>0);
+  if(!items.length){tst('سبد خالی است!');return}
+  // reset form fields
+  curDelivery='send';
+  ['f-city','f-street','f-alley','f-unit','f-plaque','f-postal','f-phone','f-note'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.value='';
+  });
+  // reset delivery UI
+  const ds=document.getElementById('del-send');
+  const dt=document.getElementById('del-take');
+  const af=document.getElementById('addr-fields');
+  const ti=document.getElementById('takeway-info');
+  if(ds)ds.classList.add('selected');
+  if(dt)dt.classList.remove('selected');
+  if(af)af.style.display='block';
+  if(ti)ti.style.display='none';
+  // reset step dots
+  [1,2,3].forEach(i=>{
+    const dot=document.getElementById('sdot'+i);
+    const line=document.getElementById('sline'+i);
+    if(dot){dot.className= i===1?'step-dot active':'step-dot';dot.textContent=i;}
+    if(line&&i<3)line.className='step-line';
+  });
+  // open modal
+  const modal=document.getElementById('chkm');
+  modal.classList.add('open');
+  const si=document.querySelector('.step-indicator');
+  if(si)si.style.display='flex';
+  // show step 1
+  document.querySelectorAll('.cstep').forEach(s=>s.classList.remove('on'));
+  const cs1=document.getElementById('cs1');
+  if(cs1)cs1.classList.add('on');
+  currentStep=1;
+  setTimeout(()=>{const sh=modal.querySelector('.msheet');if(sh)sh.scrollTop=0;},100);
+}
+
+let curDelivery='send';
+let currentStep=1;
+
+function closeChkM(ev){if(ev.target===document.getElementById('chkm'))document.getElementById('chkm').classList.remove('open')}
+function closeChkAfterSuccess(){
+  document.getElementById('chkm').classList.remove('open');
+  cart={};upd();renderCart();
+}
+
+function selDel(type){
+  curDelivery=type;
+  document.getElementById('del-send').classList.toggle('selected', type==='send');
+  document.getElementById('del-take').classList.toggle('selected', type==='take');
+  document.getElementById('addr-fields').style.display = type==='send' ? 'block' : 'none';
+  document.getElementById('takeway-info').style.display = type==='take' ? 'block' : 'none';
+}
+
+let curPay = 'cash';
+
+function selPay(type) {
+  curPay = type;
+  ['cash','online','card'].forEach(t => {
+    document.getElementById('pay-'+t).classList.toggle('on', t===type);
+  });
+  const cardBox = document.getElementById('card-info-box');
+  if(cardBox) cardBox.classList.toggle('show', type==='card');
+}
+
+function goCS(step){
+  // validate step 2 address
+  if(step===3 && curDelivery==='send'){
+    const city=document.getElementById('f-city').value.trim();
+    const street=document.getElementById('f-street').value.trim();
+    const plaque=document.getElementById('f-plaque').value.trim();
+    const postal=document.getElementById('f-postal').value.trim();
+    const phone=document.getElementById('f-phone').value.trim();
+    if(!city){tst('🏙️ شهر را وارد کنید');return}
+    if(!street){tst('🗺️ خیابان را وارد کنید');return}
+    if(!plaque){tst('🔢 پلاک را وارد کنید');return}
+    if(!postal||postal.length!==10){tst('📮 کد پستی ۱۰ رقمی وارد کنید');return}
+    if(!phone||phone.length<10){tst('📞 شماره تماس را وارد کنید');return}
+  }
+  // build confirm preview (step 4)
+  if(step===4){
+    const items=Object.values(cart).filter(i=>i.q>0);
+    const sub=items.reduce((s,i)=>s+i.p*i.q,0);
+    const del=curDelivery==='send'?15000:0;
+    const total=sub+del;
+    let sumHTML=items.map(i=>`<div class="os-row"><span class="os-lbl">${i.e} ${i.n} ×${i.q}</span><span class="os-val">${(i.p*i.q).toLocaleString('fa-IR')} ت</span></div>`).join('');
+    sumHTML+=`<div class="os-row"><span class="os-lbl">هزینه ارسال</span><span class="os-val">${del?del.toLocaleString('fa-IR')+' ت':'رایگان'}</span></div>`;
+    sumHTML+=`<div class="os-total-row"><span class="os-total-lbl">مجموع کل</span><span class="os-total-val">${total.toLocaleString('fa-IR')} تومان</span></div>`;
+    document.getElementById('order-summary-box').innerHTML=sumHTML;
+    // address preview
+    let addrText='';
+    if(curDelivery==='send'){
+      const city=document.getElementById('f-city').value;
+      const street=document.getElementById('f-street').value;
+      const alley=document.getElementById('f-alley').value;
+      const plaque=document.getElementById('f-plaque').value;
+      const unit=document.getElementById('f-unit').value;
+      const postal=document.getElementById('f-postal').value;
+      const phone=document.getElementById('f-phone').value;
+      const note=document.getElementById('f-note').value;
+      addrText=`${city}، ${street}${alley?'، '+alley:''}، پلاک ${plaque}${unit?'، واحد '+unit:''}`;
+      addrText+=`<br>📮 کد پستی: ${postal} &nbsp;|&nbsp; 📞 ${phone}`;
+      if(note) addrText+=`<br>📝 ${note}`;
+    } else {
+      addrText='🏪 تحویل حضوری از فروشگاه<br>تهران، خیابان ولیعصر، پلاک ۲۱۴';
+    }
+    document.getElementById('addr-preview').innerHTML=addrText;
+    // payment preview
+    const payLabels={
+      cash:'💵 پرداخت در منزل — نقد یا کارتخوان هنگام تحویل',
+      online:'🏦 پرداخت آنلاین — درگاه بانکی شتاب/شاپرک',
+      card:'💳 کارت به کارت — شماره: 6037 9910 1234 5678'
+    };
+    document.getElementById('pay-preview').textContent=payLabels[curPay];
+  }
+  currentStep=step;
+  document.querySelectorAll('.cstep').forEach(s=>s.classList.remove('on'));
+  const el=document.getElementById('cs'+step);
+  if(el) el.classList.add('on');
+  // update step dots 1-4
+  [1,2,3,4].forEach(i=>{
+    const dot=document.getElementById('sdot'+i);
+    if(!dot) return;
+    if(i<step){dot.className='step-dot done';dot.textContent='✓'}
+    else if(i===step){dot.className='step-dot active';dot.textContent=i}
+    else{dot.className='step-dot';dot.textContent=i}
+    if(i<4){
+      const line=document.getElementById('sline'+i);
+      if(line) line.className='step-line'+(i<step?' done':'');
+    }
+  });
+  // scroll to top
+  const sheet=document.querySelector('#chkm .msheet');
+  if(sheet) sheet.scrollTop=0;
+}
+
+function placeOrder(){
+  const code='JN-'+Math.floor(100000+Math.random()*900000);
+  document.getElementById('track-code').textContent=code;
+  // payment note
+  const notes={
+    cash:'💵 پیک هنگام تحویل منتظر پرداخت نقدی یا کارتخوان خواهد بود.',
+    online:'🏦 لینک پرداخت آنلاین پس از تأیید سفارش برای شما ارسال می‌شود.',
+    card:'💳 لطفاً مبلغ را به شماره کارت 6037-9910-1234-5678 واریز کرده و تصویر رسید را به واتساپ ارسال کنید.'
+  };
+  const noteEl=document.getElementById('pay-method-note');
+  if(noteEl) noteEl.textContent=notes[curPay]||'';
+  // go to success (cs5)
+  currentStep=5;
+  document.querySelectorAll('.cstep').forEach(s=>s.classList.remove('on'));
+  document.getElementById('cs5').classList.add('on');
+  document.querySelector('.step-indicator').style.display='none';
+}
+
+// PRODUCT MODAL
+function openPM(n,d,e,p,img){
+  MPD={n,d,e,p};
+  document.getElementById('pmn').textContent=n;
+  document.getElementById('pmd').textContent=d;
+  const emoEl=document.getElementById('pme');
+  if(img){
+    emoEl.style.fontSize='0';
+    emoEl.style.backgroundImage=`url(${img})`;
+    emoEl.style.backgroundSize='cover';
+    emoEl.style.backgroundPosition='center';
+    emoEl.style.width='120px';
+    emoEl.style.height='120px';
+    emoEl.style.borderRadius='20px';
+    emoEl.style.margin='0 auto 16px';
+    emoEl.style.display='block';
+    emoEl.style.boxShadow='0 8px 32px rgba(0,0,0,0.4)';
+  } else {
+    emoEl.style.cssText='';
+    emoEl.textContent=e;
+  }
+  document.getElementById('pmpv').textContent=p ? p.toLocaleString('fa-IR')+' تومان' : 'تماس بگیرید';
+  document.getElementById('pm').classList.add('open');
+}
+function closePM(ev){if(ev.target===document.getElementById('pm'))document.getElementById('pm').classList.remove('open')}
+function addFM(){if(MPD)qadd(MPD.n,MPD.e,MPD.p);document.getElementById('pm').classList.remove('open')}
+
+// LOGIN
+function openLM(){document.getElementById('lm').classList.add('open');showLS('ph')}
+function closeLM(ev){if(ev.target===document.getElementById('lm'))document.getElementById('lm').classList.remove('open')}
+function showLS(s){document.querySelectorAll('.lstp').forEach(x=>x.classList.remove('on'));document.getElementById('ls-'+s).classList.add('on')}
+function sendOTP(){
+  const v=document.getElementById('phin').value.trim();
+  if(v.length<9){tst('شماره موبایل معتبر نیست');return}
+  OTP=Math.floor(10000+Math.random()*90000).toString();
+  userPh='0'+v;document.getElementById('phsh').textContent=userPh;
+  showLS('ot');
+  // show fake SMS notification
+  showSMSNotif(userPh, OTP);
+  document.getElementById('o0').focus();
+  let sec=90;clearInterval(otpT);const cd=document.getElementById('ocd');
+  otpT=setInterval(()=>{
+    if(sec<=0){clearInterval(otpT);cd.parentElement.innerHTML='<span onclick="sendOTP()" style="color:var(--gold2);font-weight:700;cursor:pointer">ارسال مجدد</span>';return}
+    cd.textContent=`${String(Math.floor(sec/60)).padStart(2,'0')}:${String(sec%60).padStart(2,'0')}`;sec--;
+  },1000);
+}
+
+function showSMSNotif(phone, code) {
+  const el = document.getElementById('sms-notif');
+  document.getElementById('sms-code').textContent = code;
+  // set time
+  const n = new Date();
+  document.getElementById('sms-time').textContent =
+    String(n.getHours()).padStart(2,'0') + ':' + String(n.getMinutes()).padStart(2,'0');
+  el.classList.remove('vibrating');
+  void el.offsetWidth; // reflow
+  el.classList.add('show');
+  el.classList.add('vibrating');
+  // vibrate phone if supported
+  if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+  // auto dismiss after 8s
+  setTimeout(() => dismissSMS(), 8000);
+}
+
+function dismissSMS() {
+  document.getElementById('sms-notif').classList.remove('show');
+}
+function om(i){const v=document.getElementById('o'+i).value;if(v&&i<4)document.getElementById('o'+(i+1)).focus();if(i===4)verOTP()}
+function ob(i,e){if(e.key==='Backspace'&&!document.getElementById('o'+i).value&&i>0)document.getElementById('o'+(i-1)).focus()}
+function verOTP(){
+  const en=[0,1,2,3,4].map(i=>document.getElementById('o'+i).value).join('');
+  if(en===OTP){
+    clearInterval(otpT);loggedIn=true;showLS('ok');
+    document.getElementById('pava').textContent='😊';
+    document.getElementById('pname').textContent='کاربر جعفرنژاد';
+    document.getElementById('psub').textContent=userPh;
+    document.getElementById('lml').textContent='✅ وارد شده‌اید';
+  }else{tst('کد اشتباه است');[0,1,2,3,4].forEach(i=>{document.getElementById('o'+i).value=''});document.getElementById('o0').focus()}
+}
+function finL(){document.getElementById('lm').classList.remove('open')}
+
+// CHAT
+// REAL AI CHAT
+// ── SMART CHAT — هوش مصنوعی واقعی ─────────────────
+let chatHistory = [];
+
+const SHOP_INFO = `
+تو دستیار پشتیبانی بستنی جعفرنژادی. همیشه فارسی جواب بده. جواب‌ها کوتاه (۱-۳ جمله)، صمیمی و با ایموجی باشه.
+اطلاعات:
+- ساعات کاری: شنبه تا پنج‌شنبه ۹ صبح تا ۱۲ شب، جمعه ۱۰ صبح تا ۱:۳۰ بامداد
+- محصولات: آبمیوه تازه، بستنی، میکس، بطری، ویتامینه، آیس پک، گلاسه، میلک‌شیک، فالوده، دسر
+- قیمت‌ها: ۱۸ تا ۴۸ هزار تومان
+- هزینه ارسال: ۱۵,۰۰۰ تومان — رایگان بالای ۱۵۰,۰۰۰ تومان
+- پرداخت: نقد در منزل، کارتخوان، آنلاین، کارت به کارت
+- آدرس: تهران، خیابان ولیعصر، پلاک ۲۱۴
+- تلفن: 09144524740
+`.trim();
+
+// جواب‌های آفلاین هوشمند
+const SMART_REPLIES = [
+  { keys:['سلام','درود','خوبی','هستی'], r:'سلام! 👋 خوشحالم که اینجایی. چطور می‌تونم کمک کنم؟ 🍦' },
+  { keys:['ساعت','کی باز','چه ساعت','وقت کاری','بسته'], r:'ساعات کاری ما: شنبه–پنج‌شنبه ۹ صبح تا ۱۲ شب 🌙، جمعه‌ها ۱۰ صبح تا ۱:۳۰ بامداد 🕐' },
+  { keys:['قیمت','چنده','هزینه','چقدر'], r:'قیمت‌های ما از ۱۸,۰۰۰ تا ۴۸,۰۰۰ تومانه 💰 از منو می‌تونی همه رو ببینی!' },
+  { keys:['آدرس','کجا','محل','مکان'], r:'آدرس ما: تهران، خیابان ولیعصر، پلاک ۲۱۴ 📍 می‌تونی حضوری هم بیای!' },
+  { keys:['تلفن','شماره','زنگ','تماس'], r:'شماره تماس: 09144524740 📞 شنبه تا پنج‌شنبه ۹ صبح تا ۹ شب' },
+  { keys:['ارسال','تحویل','پیک','چقدر وقت','چه مدت'], r:'ارسال ۳۰–۴۵ دقیقه‌ست 🛵 هزینه ارسال ۱۵,۰۰۰ تومانه — بالای ۱۵۰,۰۰۰ رایگانه!' },
+  { keys:['پرداخت','پول','نقد','کارت','آنلاین'], r:'روش‌های پرداخت: نقد در منزل 💵، کارتخوان 💳، آنلاین 🏦، کارت به کارت — هر کدوم دوست داری!' },
+  { keys:['بستنی','آیسکریم','ice cream'], r:'بستنی‌های ما: وانیلی، شکلاتی، پسته‌ای، توت‌فرنگی 🍦 همه تازه و روزانه!' },
+  { keys:['میلک شیک','میلک‌شیک','شیک'], r:'میلک‌شیک داریم به ۴ طعم: شکلاتی، توت‌فرنگی، کاراملی، موزی 🥤 همه خامه‌ای و خوشمزه!' },
+  { keys:['فالوده'], r:'فالوده شیرازی، توت‌فرنگی و آناناسی داریم 🍡 همه اصیل و خوشمزه!' },
+  { keys:['آبمیوه','جوس','juice'], r:'آبمیوه تازه داریم: پرتقال، انار، هندوانه، توت‌فرنگی 🍊 همه فشرده تازه!' },
+  { keys:['ویتامین','ویتامینه'], r:'ویتامینه داریم: ویتامینه C، سبز و انرژی‌زا 💊 عالی برای سلامتی!' },
+  { keys:['ممنون','مرسی','دستت درد نکنه','خداحافظ','بای'], r:'خواهش می‌کنم دادش! 🙏 موفق باشی. هر وقت کاری بود اینجام 🍦' },
+  { keys:['مشکل','شکایت','ناراضی','بد'], r:'متأسفم از این موضوع 🙏 لطفاً با تلفن 09144524740 تماس بگیرید تا سریع حل کنیم!' },
+  { keys:['تخفیف','آفر','جشنواره'], r:'برای اطلاع از تخفیف‌ها با شماره 09144524740 تماس بگیرید یا در اینستاگرام ما رو دنبال کنید 🎁' },
+];
+
+function getSmartReply(msg) {
+  const lower = msg.toLowerCase();
+  for (const item of SMART_REPLIES) {
+    if (item.keys.some(k => lower.includes(k) || msg.includes(k))) return item.r;
+  }
+  return null;
+}
+
+function appendMsg(role, text) {
+  const ms = document.getElementById('chatmsgs');
+  const div = document.createElement('div');
+  div.className = 'cmsg ' + (role === 'bot' ? 'bot' : 'me');
+  div.textContent = text;
+  ms.appendChild(div);
+  ms.scrollTop = ms.scrollHeight;
+}
+
+function setTyping(show) {
+  const ex = document.getElementById('typing-ind');
+  if (show && !ex) {
+    const ms = document.getElementById('chatmsgs');
+    const d = document.createElement('div');
+    d.className = 'cmsg bot'; d.id = 'typing-ind';
+    d.innerHTML = '<span style="letter-spacing:4px;font-size:18px;opacity:0.5">···</span>';
+    ms.appendChild(d); ms.scrollTop = ms.scrollHeight;
+  } else if (!show && ex) { ex.remove(); }
+}
+
+async function sendMsg() {
+  const inp = document.getElementById('chatin');
+  const t = inp.value.trim();
+  if (!t) return;
+
+  appendMsg('me', t);
+  inp.value = '';
+  inp.disabled = true;
+  setTyping(true);
+  chatHistory.push({ role: 'user', content: t });
+
+  // اول جواب آفلاین رو چک کن
+  const smartReply = getSmartReply(t);
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 300,
+        system: SHOP_INFO,
+        messages: chatHistory
+      })
+    });
+
+    const data = await res.json();
+    setTyping(false);
+
+    const reply = data?.content?.[0]?.text;
+    if (reply) {
+      chatHistory.push({ role: 'assistant', content: reply });
+      appendMsg('bot', reply);
+    } else {
+      throw new Error('empty');
+    }
+
+  } catch (e) {
+    setTyping(false);
+    // از جواب آفلاین هوشمند استفاده کن
+    const fallback = smartReply ||
+      'ممنون از پیامت! 🙏 الان دسترسی به سرور نیست. لطفاً با شماره 09144524740 تماس بگیر.';
+    chatHistory.push({ role: 'assistant', content: fallback });
+    // کمی تأخیر طبیعی
+    await new Promise(r => setTimeout(r, 600));
+    appendMsg('bot', fallback);
+  }
+
+  inp.disabled = false;
+  inp.focus();
+}
+
+// TOAST
+let tT2;
+function tst(m){
+  const el=document.getElementById('tst');el.textContent=m;el.classList.add('show');
+  clearTimeout(tT2);tT2=setTimeout(()=>el.classList.remove('show'),2700);
+}
+</script>
+</body>
+</html>
