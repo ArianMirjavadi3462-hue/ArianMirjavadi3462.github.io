@@ -14,6 +14,9 @@
 <meta property="og:description" content="طراحی لوگو، لوگوموشن، سایت مدرن و مشاوره قطعات گیمینگ — سفارش سریع در تلگرام.">
 <meta property="og:url" content="https://arian3462.ir/">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="آرین میرجوادی">
+<meta name="keywords" content="طراحی لوگو, لوگوموشن, طراحی سایت, مشاوره گیمینگ, اسمبل PC, صفحه‌آرایی ورد, هوش مصنوعی, ادیت ویدیو, آرین میرجوادی">
+<meta name="robots" content="index, follow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%234f8eff'/%3E%3Ctext x='50' y='73' font-size='62' text-anchor='middle' fill='white' font-family='sans-serif'%3E%D8%A2%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +25,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"آرین میرجوادی",
 "description":"طراحی لوگو، لوگوموشن، طراحی سایت و مشاوره خرید قطعات گیمینگ",
-"telephone":"+989924540781","areaServed":"IR",
+"telephone":"+989924540781","areaServed":"IR","url":"https://arian3462.ir/",
 "sameAs":["https://t.me/Arian3462Ss","https://www.instagram.com/arian3462_blogger","https://www.aparat.com/Arian3462"]}
 </script>
 
@@ -382,6 +385,162 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
 .reveal.in-view{opacity:1;transform:none}
 
+/* ===== v2: cursor + spotlight ===== */
+#curD{position:fixed;width:7px;height:7px;border-radius:50%;background:var(--acc);z-index:400;pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s;box-shadow:0 0 10px var(--glow)}
+#curR{position:fixed;width:34px;height:34px;border-radius:50%;border:1.5px solid color-mix(in srgb,var(--acc) 60%,transparent);z-index:399;pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s,width .2s,height .2s}
+body.cur-on #curD{opacity:.95}
+body.cur-on #curR{opacity:.65}
+#curR.grow{width:54px;height:54px}
+.spot{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(540px circle at var(--sx,50%) var(--sy,18%),rgba(79,142,255,.075),transparent 66%)}
+[data-theme="light"] .spot{background:radial-gradient(540px circle at var(--sx,50%) var(--sy,18%),rgba(79,142,255,.1),transparent 66%)}
+
+/* ===== v2: hero glow + hint ===== */
+.hero{position:relative}
+.hero-glow{position:absolute;top:4%;left:50%;width:min(780px,94vw);height:230px;transform:translateX(-50%);pointer-events:none;z-index:-1;background:radial-gradient(60% 80% at 30% 45%,rgba(79,142,255,.17),transparent 70%),radial-gradient(52% 72% at 70% 45%,rgba(155,111,255,.15),transparent 70%),radial-gradient(40% 60% at 50% 65%,rgba(34,224,255,.1),transparent 70%);animation:hg 7s ease-in-out infinite alternate}
+@keyframes hg{from{opacity:.65;transform:translateX(-50%) scale(.98)}to{opacity:1;transform:translateX(-50%) scale(1.05)}}
+.hero h1{background-size:220% 220%;animation:shimmer 7s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.orb-wrap{transition:transform .3s ease-out;will-change:transform}
+.kbd-hint{margin-top:20px;font-size:.66rem;color:var(--muted-2);display:none;align-items:center;justify-content:center;gap:6px}
+kbd{background:var(--soft-2);border:1px solid var(--border-2);border-radius:6px;padding:1px 7px;font-size:.66rem;font-family:inherit;font-weight:700}
+@media(min-width:900px){.kbd-hint{display:flex}}
+
+/* ===== v2: why ===== */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.why-grid{grid-template-columns:1fr}}
+.why{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:20px;transition:transform .22s,border-color .22s,box-shadow .22s}
+.why:hover{transform:translateY(-4px);border-color:var(--border-2);box-shadow:0 18px 34px -20px var(--glow)}
+.why-ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:21px;background:color-mix(in srgb,var(--blue) 11%,transparent);border:1px solid var(--border);margin-bottom:13px}
+.why-t{font-size:.9rem;font-weight:800;margin-bottom:6px}
+.why-d{font-size:.73rem;color:var(--muted);line-height:1.95}
+
+/* ===== v2: pc builder ===== */
+.pcb{display:grid;grid-template-columns:1fr 1.25fr;gap:18px}
+@media(max-width:860px){.pcb{grid-template-columns:1fr}}
+.pcb-lbl{font-size:.74rem;font-weight:800;color:var(--blue);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pcb-val{font-size:.95rem;font-weight:900;background:var(--grad-acc);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+#pcbRange{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:50px;direction:ltr;outline:none;margin:16px 0 6px;background:linear-gradient(to right,var(--violet),var(--blue) 50%,var(--cyan));cursor:pointer}
+#pcbRange::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:5px solid var(--blue);cursor:pointer;box-shadow:0 4px 14px -4px var(--glow);transition:transform .15s}
+#pcbRange::-webkit-slider-thumb:hover{transform:scale(1.12)}
+#pcbRange::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:#fff;border:5px solid var(--blue);cursor:pointer;box-shadow:0 4px 14px -4px var(--glow)}
+.preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pbtn{font-size:.68rem;font-weight:700;padding:6px 13px;border-radius:50px;border:1px dashed var(--border-2);background:var(--soft);color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s}
+.pbtn:hover{color:var(--text);border-color:var(--blue)}
+.use-row{display:flex;gap:8px;flex-wrap:wrap}
+.ubtn{font-size:.75rem;font-weight:700;padding:9px 16px;border-radius:50px;border:1px solid var(--border);background:var(--soft);color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s}
+.ubtn:hover{color:var(--text)}
+.ubtn.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 8px 18px -10px var(--glow)}
+.pcb-out{border:1px solid var(--border-2);border-radius:var(--r-md);padding:22px;background:linear-gradient(160deg,rgba(79,142,255,.09),var(--card) 55%)}
+.tier-head{display:flex;align-items:center;gap:13px;margin-bottom:15px}
+.tier-ic{width:48px;height:48px;border-radius:15px;background:var(--grad);display:grid;place-items:center;font-size:23px;flex-shrink:0;box-shadow:0 10px 24px -12px var(--glow)}
+.tier-name{font-size:1.08rem;font-weight:900}
+.tier-res{font-size:.68rem;color:var(--acc);font-weight:700;margin-top:3px}
+.spec{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 2px;border-bottom:1px dashed var(--border);font-size:.78rem}
+.spec:last-of-type{border-bottom:0}
+.spec>span{color:var(--muted-2);font-size:.66rem;font-weight:800;letter-spacing:.5px;white-space:nowrap}
+.spec b{font-weight:700;text-align:left}
+.pcb-note{font-size:.66rem;color:var(--muted-2);margin-top:12px;line-height:1.95}
+
+/* ===== v2: faq search ===== */
+.faq-search{position:relative;margin-bottom:10px}
+.faq-search input{width:100%;background:var(--soft);border:1px solid var(--border);border-radius:14px;padding:12px 42px 12px 16px;font-size:.82rem;outline:none;transition:border-color .18s;color:var(--text)}
+.faq-search input:focus{border-color:var(--blue)}
+.faq-search::before{content:'🔍';position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:.85rem;opacity:.55;pointer-events:none}
+.faq-count{font-size:.64rem;color:var(--muted-2);margin:-2px 0 12px}
+
+/* ===== v2: command palette ===== */
+.cp{position:fixed;inset:0;z-index:250;background:rgba(3,6,14,.66);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;display:flex;justify-content:center;align-items:flex-start;padding:9vh 16px 16px}
+[data-theme="light"] .cp{background:rgba(20,35,70,.42)}
+.cp.open{opacity:1;visibility:visible}
+.cp-in{width:100%;max-width:540px;background:var(--panel);border:1px solid var(--border-2);border-radius:18px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.75);transform:translateY(-14px) scale(.98);transition:transform .24s cubic-bezier(.4,0,.2,1)}
+.cp.open .cp-in{transform:none}
+.cp-search{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border)}
+.cp-search input{flex:1;background:none;border:0;outline:none;font-size:.95rem;color:var(--text)}
+.cp-search input::placeholder{color:var(--muted-2)}
+.cp-list{max-height:min(52vh,360px);overflow-y:auto;padding:8px}
+.cp-item{display:flex;align-items:center;gap:11px;width:100%;text-align:right;padding:10px 12px;border-radius:12px;font-size:.84rem;font-weight:600;color:var(--muted);cursor:pointer;border:1px solid transparent;background:none;transition:background .15s,color .15s}
+.cp-item .ci{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--soft);border:1px solid var(--border);font-size:15px;flex-shrink:0}
+.cp-item small{margin-inline-start:auto;font-size:.6rem;color:var(--muted-2);font-weight:500}
+.cp-item.on{background:var(--soft-2);color:var(--text);border-color:var(--border)}
+.cp-empty{padding:26px;text-align:center;font-size:.78rem;color:var(--muted-2)}
+.cp-foot{padding:10px 16px;border-top:1px solid var(--border);font-size:.62rem;color:var(--muted-2);display:flex;gap:16px;flex-wrap:wrap}
+
+/* ===== v2: footer share ===== */
+button.footer-soc{font-size:14px;cursor:pointer}
+
+/* ===== v3: floating shapes + aurora ===== */
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.shapes{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;contain:strict}
+.shapes b{position:absolute;display:block;will-change:transform}
+.shapes .s1{width:130px;height:130px;top:15%;right:5%;border:1.5px solid rgba(79,142,255,.32);border-radius:50%;animation:shFloat 12s ease-in-out infinite alternate}
+.shapes .s2{width:60px;height:60px;top:62%;right:12%;border:1.5px solid rgba(155,111,255,.32);border-radius:16px;animation:shSpin 26s linear infinite}
+.shapes .s3{width:0;height:0;top:28%;left:7%;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:34px solid rgba(34,224,255,.15);animation:shFloat 14s ease-in-out -5s infinite alternate}
+.shapes .s4{width:92px;height:92px;top:72%;left:9%;border:1.5px dashed rgba(255,209,102,.28);border-radius:50%;animation:shSpin 34s linear infinite reverse}
+.shapes .s5{width:38px;height:38px;top:44%;right:42%;border:1.5px solid rgba(79,142,255,.22);border-radius:11px;animation:shFloat 10s ease-in-out -3s infinite alternate}
+@keyframes shFloat{to{transform:translateY(-36px) rotate(10deg)}}
+@keyframes shSpin{to{transform:rotate(360deg)}}
+@media(max-width:640px){.shapes{display:none}}
+.amb i:nth-child(3){width:46vw;height:46vw;top:36%;left:30%;background:radial-gradient(circle,rgba(34,224,255,.13),transparent 68%);animation:drift2 26s ease-in-out -9s infinite alternate}
+@keyframes drift2{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-5%,5%,0) scale(1.12)}}
+
+/* ===== v3: rotating light borders ===== */
+.glass::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;background:conic-gradient(from var(--ang),transparent 0 62%,rgba(79,142,255,.7) 76%,rgba(155,111,255,.7) 85%,rgba(34,224,255,.55) 93%,transparent);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;opacity:0;transition:opacity .5s;animation:bordSpin 5.5s linear infinite;animation-play-state:paused;pointer-events:none;z-index:2}
+.glass:hover::before,.glass:focus-within::before{opacity:1;animation-play-state:running}
+@keyframes bordSpin{to{--ang:360deg}}
+
+/* ===== v3: orb + icon tiles + thumbs ===== */
+.orb{background:linear-gradient(135deg,#5f9bff,#8f5fff 52%,#22e0ff)}
+.orb::before{content:'';position:absolute;inset:0;border-radius:32px;background:radial-gradient(circle at 30% 24%,rgba(255,255,255,.5),transparent 44%)}
+.orb-glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(79,142,255,.35),transparent 62%);animation:orbP 3.4s ease-in-out infinite;z-index:-1}
+.orb-orbit{position:absolute;inset:-15px;animation:spin 9s linear infinite}
+.orb-orbit::before{content:'';position:absolute;top:-5px;left:calc(50% - 4.5px);width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+@keyframes orbP{0%,100%{transform:scale(.92);opacity:.55}50%{transform:scale(1.1);opacity:1}}
+.srv-icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:26px;line-height:1;margin-bottom:12px;background:color-mix(in srgb,var(--blue) 12%,transparent);border:1px solid var(--border);transition:transform .25s cubic-bezier(.4,0,.2,1),box-shadow .25s,border-color .25s}
+.srv:hover .srv-icon{transform:scale(1.08) rotate(-5deg);border-color:var(--border-2);box-shadow:0 12px 26px -12px var(--glow)}
+.work-thumb{transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.work-thumb::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.5px);background-size:17px 17px}
+.work-card:hover .work-thumb{transform:scale(1.05)}
+.banner{background:linear-gradient(120deg,rgba(79,142,255,.16),rgba(155,111,255,.15) 34%,rgba(34,224,255,.11) 62%,rgba(79,142,255,.16));background-size:280% 280%;animation:banBg 13s ease infinite}
+@keyframes banBg{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.btn-primary{animation:btnGlow 3.6s ease-in-out infinite}
+@keyframes btnGlow{0%,100%{box-shadow:0 10px 26px -10px var(--glow)}50%{box-shadow:0 16px 38px -8px var(--glow)}}
+
+/* ===== v3: smart chat ===== */
+.chat-fab{position:fixed;bottom:20px;left:80px;z-index:95;display:inline-flex;align-items:center;gap:7px;padding:11px 17px;border-radius:50px;border:1px solid rgba(255,255,255,.2);cursor:pointer;font-family:inherit;font-size:.76rem;font-weight:800;color:#fff;background:var(--grad);box-shadow:0 12px 30px -10px var(--glow);transition:transform .2s,box-shadow .2s}
+.chat-fab:hover{transform:translateY(-3px);box-shadow:0 16px 36px -10px var(--glow)}
+.chat-fab:active{transform:scale(.97)}
+.cp-ring{position:absolute;inset:-3px;border-radius:50px;border:2px solid rgba(109,230,255,.5);animation:chatPing 2.4s cubic-bezier(.4,0,.2,1) infinite;pointer-events:none}
+.chat-fab.seen .cp-ring{display:none}
+@keyframes chatPing{0%{transform:scale(.96);opacity:.8}70%,100%{transform:scale(1.25);opacity:0}}
+.chat{position:fixed;bottom:86px;left:20px;z-index:160;width:min(380px,calc(100vw - 32px));height:min(580px,72vh);background:var(--panel);border:1px solid var(--border-2);border-radius:22px;box-shadow:0 30px 80px -30px rgba(0,0,0,.8);display:flex;flex-direction:column;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(16px) scale(.97);transition:opacity .25s,visibility .25s,transform .25s cubic-bezier(.4,0,.2,1)}
+.chat.open{opacity:1;visibility:visible;transform:none}
+.chat-head{display:flex;align-items:center;gap:11px;padding:13px 15px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,rgba(79,142,255,.15),rgba(155,111,255,.13))}
+.chat-av{width:38px;height:38px;border-radius:12px;background:var(--grad);display:grid;place-items:center;font-size:18px;flex-shrink:0}
+.chat-title{font-size:.86rem;font-weight:800}
+.chat-sub{font-size:.62rem;color:var(--acc);font-weight:700;display:flex;align-items:center;gap:5px;margin-top:2px}
+.chat-body{flex:1;overflow-y:auto;padding:16px 13px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:84%;padding:10px 14px;border-radius:16px;font-size:.79rem;line-height:1.95;animation:fadeUp .3s backwards;word-break:break-word}
+.msg.bot{align-self:flex-start;background:var(--soft-2);border:1px solid var(--border);border-bottom-right-radius:6px}
+.msg.user{align-self:flex-end;background:var(--grad);color:#fff;border-bottom-left-radius:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start}
+.qchip{font-size:.68rem;font-weight:700;padding:6px 12px;border-radius:50px;border:1px solid var(--border-2);background:var(--soft);color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s;font-family:inherit}
+.qchip:hover{color:var(--text);border-color:var(--blue)}
+.typing{align-self:flex-start;display:flex;gap:4px;padding:13px 16px;background:var(--soft-2);border:1px solid var(--border);border-radius:16px;border-bottom-right-radius:6px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:tp 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}
+.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tp{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+.chat-actions{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--border)}
+.chat-actions a{flex:1;text-align:center;font-size:.7rem;font-weight:700;padding:9px 4px;border-radius:12px;border:1px solid var(--border);background:var(--soft);color:var(--muted);transition:color .18s,border-color .18s}
+.chat-actions a:hover{color:var(--text);border-color:var(--blue)}
+.chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)}
+.chat-input input{flex:1;background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:10px 13px;font-size:.8rem;outline:none;transition:border-color .18s;min-width:0}
+.chat-input input:focus{border-color:var(--blue)}
+.chat-send{width:42px;border-radius:12px;border:0;background:var(--grad);color:#fff;font-size:15px;cursor:pointer;transition:transform .15s;flex-shrink:0}
+.chat-send:hover{transform:scale(1.07)}
+@media(max-width:640px){.chat-fab{left:78px;bottom:16px;padding:10px 14px}.chat{bottom:82px;left:16px}}
+
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--ink)}
 ::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:10px}
@@ -407,8 +566,10 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
 <a class="skip" href="#main">رفتن به محتوای اصلی</a>
 <div id="prog"></div>
 
-<div class="amb" aria-hidden="true"><i></i><i></i></div>
+<div class="amb" aria-hidden="true"><i></i><i></i><i></i></div>
 <canvas id="c" aria-hidden="true"></canvas>
+<div class="spot" aria-hidden="true"></div>
+<div class="shapes" aria-hidden="true"><b class="s1"></b><b class="s2"></b><b class="s3"></b><b class="s4"></b><b class="s5"></b></div>
 
 <header class="nav au a1">
   <div class="nav-in">
@@ -416,12 +577,14 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
     <nav class="nav-links" aria-label="منوی اصلی">
       <a href="#about">درباره من</a>
       <a href="#services">خدمات</a>
+      <a href="#pcbuilder">اسمبل هوشمند</a>
       <a href="#work">نمونه‌کار</a>
       <a href="#packages">پکیج‌ها</a>
       <a href="#process">مراحل</a>
       <a href="#faq">سوالات</a>
     </nav>
     <div class="nav-tools">
+      <button class="icon-btn" id="cpBtn" aria-label="جستجوی سریع" title="جستجوی سریع (Ctrl+K)">🔍</button>
       <button class="icon-btn" id="theme" aria-label="تغییر تم">☀️</button>
       <button class="icon-btn" id="burger" aria-label="منو" aria-expanded="false">☰</button>
       <a class="nav-cta" href="#" data-open-order data-s="سفارش پروژه">ثبت سفارش</a>
@@ -436,7 +599,9 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
     <h4>منو</h4>
     <a class="dl" href="#about">درباره من</a>
     <a class="dl" href="#services">خدمات</a>
+    <a class="dl" href="#pcbuilder">اسمبل هوشمند</a>
     <a class="dl" href="#work">نمونه‌کار</a>
+    <a class="dl" href="#why">چرا من؟</a>
     <a class="dl" href="#packages">پکیج‌ها</a>
     <a class="dl" href="#process">مراحل کار</a>
     <a class="dl" href="#faq">سوالات متداول</a>
@@ -447,8 +612,9 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
 <main class="wrap" id="main">
 
   <section class="hero au a2">
+    <div class="hero-glow" aria-hidden="true"></div>
     <div class="hero-eyebrow"><span class="dot-live"></span>آنلاین و آماده سفارش</div>
-    <div class="orb-wrap"><div class="orb" aria-hidden="true">آ</div></div>
+    <div class="orb-wrap"><div class="orb" aria-hidden="true"><span class="orb-glow"></span><span class="orb-orbit"></span>آ</div></div>
     <h1>آرین میرجوادی</h1>
     <div class="type-line"><span class="lead">تخصص من:</span><span id="typed"></span><span class="caret" aria-hidden="true"></span></div>
     <p class="hero-sub">طراحی دیجیتال حرفه‌ای، وب‌سایت‌های مدرن و مشاوره تخصصی قطعات گیمینگ — با ارتباط مستقیم و بدون واسطه.</p>
@@ -461,6 +627,7 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
       <button class="btn btn-primary mag" data-open-order data-s="سفارش پروژه">🚀 ثبت سفارش سریع</button>
       <a class="btn btn-ghost mag" href="#services">✨ دیدن خدمات</a>
     </div>
+    <div class="kbd-hint">جستجو و دسترسی سریع: <kbd>Ctrl</kbd> + <kbd>K</kbd></div>
     <div class="scroll-cue" aria-hidden="true"><span>اسکرول کنید</span><span class="scroll-cue-line"></span></div>
     <div class="hero-divider"></div>
   </section>
@@ -495,6 +662,8 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
         <button class="srv" data-open-order data-s="طراحی سایت"><span class="srv-icon">💻</span><span class="srv-name">طراحی سایت</span><span class="srv-hint">وب مدرن، سریع و ریسپانسیو</span><span class="srv-go">سفارش ←</span></button>
         <button class="srv" data-open-order data-s="پروژه هوش مصنوعی"><span class="srv-icon">🤖</span><span class="srv-name">هوش مصنوعی</span><span class="srv-hint">تولید محتوا و تصویر با AI</span><span class="srv-go">سفارش ←</span></button>
         <button class="srv" data-open-order data-s="مشاوره قطعات گیمینگ"><span class="srv-icon">🕹️</span><span class="srv-name">مشاوره گیمینگ</span><span class="srv-hint">انتخاب قطعات و اسمبل PC</span><span class="srv-go">سفارش ←</span></button>
+        <button class="srv" data-open-order data-s="ادیت ویدیو"><span class="srv-icon">🎞️</span><span class="srv-name">ادیت ویدیو</span><span class="srv-hint">برش، رنگ و زیرنویس حرفه‌ای</span><span class="srv-go">سفارش ←</span></button>
+        <button class="srv" data-open-order data-s="ست شبکه‌های اجتماعی"><span class="srv-icon">📱</span><span class="srv-name">ست شبکه‌های اجتماعی</span><span class="srv-hint">کاور، پست و استوری هماهنگ</span><span class="srv-go">سفارش ←</span></button>
       </div>
       <div class="gaming-pill"><span>💡</span><span>هر چی تو ذهنته بگو، بهترین ترکیب قطعات رو برات لیست می‌کنم — مشاوره‌ی اولیه رایگانه.</span></div>
     </div>
@@ -523,6 +692,30 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
     </aside>
   </div>
 
+  <section class="glass reveal" id="pcbuilder">
+    <div class="eyebrow"><span>⚙ اسمبل هوشمند</span><span class="eyebrow-line"></span></div>
+    <p class="section-intro">بودجه‌ت رو با اسلایدر انتخاب کن، کاربردت رو مشخص کن و سریع‌ترین ترکیب منطقی قطعات رو ببین — برای لیست دقیق و قیمت روز، فقط یک پیام تلگرام کافیه.</p>
+    <div class="pcb">
+      <div class="pcb-side">
+        <div class="pcb-lbl"><span>💰 بودجه شما</span><span class="pcb-val" id="pcbVal">۱۰۰ میلیون تومان</span></div>
+        <input type="range" id="pcbRange" min="25" max="400" step="5" value="100" aria-label="بودجه بر حسب میلیون تومان">
+        <div class="preset-row">
+          <button class="pbtn" type="button" data-b="50">۵۰ میلیون</button>
+          <button class="pbtn" type="button" data-b="100">۱۰۰ میلیون</button>
+          <button class="pbtn" type="button" data-b="200">۲۰۰ میلیون</button>
+          <button class="pbtn" type="button" data-b="350">۳۵۰ میلیون</button>
+        </div>
+        <div class="pcb-lbl" style="margin-top:24px"><span>🎯 کاربرد اصلی سیستم</span></div>
+        <div class="use-row" id="pcbUse">
+          <button class="ubtn on" type="button" data-u="game">🎮 گیمینگ</button>
+          <button class="ubtn" type="button" data-u="edit">🎬 ادیت و استریم</button>
+          <button class="ubtn" type="button" data-u="office">💼 اداری و روزمره</button>
+        </div>
+      </div>
+      <div class="pcb-out" id="pcbOut"></div>
+    </div>
+  </section>
+
   <section class="glass reveal" id="work">
     <div class="eyebrow"><span>✦ نمونه‌کار و حوزه‌ها</span><span class="eyebrow-line"></span></div>
     <p class="section-intro">روی هر کارت کلیک کنید تا جزئیات بیشتر رو ببینید. برای دیدن پورتفولیوی کامل، در تلگرام درخواست بدید.</p>
@@ -535,6 +728,19 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
       <button class="fbtn" data-f="doc">اسناد</button>
     </div>
     <div class="work-grid" id="workGrid"></div>
+  </section>
+
+  <section class="glass reveal" id="why">
+    <div class="eyebrow"><span>⭐ چرا من؟</span><span class="eyebrow-line"></span></div>
+    <p class="section-intro">چیزی که باعث می‌شه پروژه‌هات با خیال راحت پیش بره:</p>
+    <div class="why-grid">
+      <div class="why"><div class="why-ic">🤝</div><div class="why-t">ارتباط مستقیم، بدون واسطه</div><div class="why-d">از اولین پیام تا تحویل نهایی، خودم در تلگرام پاسخگوام؛ خبری از شرکت واسط نیست.</div></div>
+      <div class="why"><div class="why-ic">🚫</div><div class="why-t">بدون قالب آماده</div><div class="why-d">هر پروژه از صفر و متناسب با هدف و سلیقه‌ی تو طراحی می‌شه؛ خروجی کاملاً اختصاصی مال خودته.</div></div>
+      <div class="why"><div class="why-ic">⚡</div><div class="why-t">تحویل سریع و خوش‌قول</div><div class="why-d">لوگو از ۲ روز و سایت از ۵ روز شروع می‌شه؛ زمان‌بندی دقیق قبل از شروع توافق می‌شه.</div></div>
+      <div class="why"><div class="why-ic">🛠️</div><div class="why-t">پشتیبانی بعد از تحویل</div><div class="why-d">بعد از تحویل هم کنارت هستم؛ رفع اشکال و تغییرات جزئی بدون دردسر انجام می‌شه.</div></div>
+      <div class="why"><div class="why-ic">💰</div><div class="why-t">قیمت منصفانه و شفاف</div><div class="why-d">قبل از شروع کار، هزینه‌ی دقیق مشخص می‌شه؛ هیچ هزینه‌ی پنهانی در کار نیست.</div></div>
+      <div class="why"><div class="why-ic">🎁</div><div class="why-t">مشاوره اولیه رایگان</div><div class="why-d">قبل از هر سفارش، رایگان راهنماییت می‌کنم تا مطمئن شی انتخاب درست رو انجام می‌دی.</div></div>
+    </div>
   </section>
 
   <section class="glass reveal" id="packages">
@@ -600,6 +806,8 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
 
   <section class="glass reveal faq" id="faq">
     <div class="eyebrow"><span>✦ سوالات متداول</span><span class="eyebrow-line"></span></div>
+    <div class="faq-search"><input type="text" id="faqQ" placeholder="جستجو در سوالات متداول..." aria-label="جستجو در سوالات متداول"></div>
+    <div class="faq-count" id="faqCount"></div>
     <details open><summary>چطور سفارش بدم؟</summary><div class="ans">کافیه فرم سفارش همین صفحه رو پر کنی؛ پیام آماده مستقیم به تلگرام من میاد و جزئیات پروژه رو همون‌جا نهایی می‌کنیم.</div></details>
     <details><summary>زمان تحویل معمولاً چقدره؟</summary><div class="ans">لوگو معمولاً ۲ تا ۴ روز، لوگوموشن ۳ تا ۵ روز و سایت بسته به تعداد صفحات از ۵ روز شروع می‌شه. سفارش فوری هم در صورت خالی بودن ظرفیت پذیرفته می‌شه.</div></details>
     <details><summary>چند بار می‌تونم اصلاح بخوام؟</summary><div class="ans">در حالت استاندارد، بازبینی‌های منطقی تا رسیدن به نتیجه‌ی مورد قبول انجام می‌شه؛ تغییر کامل مسیر پروژه جداگانه هماهنگ می‌شه.</div></details>
@@ -618,11 +826,12 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
   </section>
 
   <footer>
-    <span>© ۲۰۲۵ آرین میرجوادی — تمامی حقوق محفوظ</span>
+    <span>© <span id="fyr">۱۴۰۵</span> آرین میرجوادی — تمامی حقوق محفوظ</span>
     <div class="footer-socials">
       <a class="footer-soc" href="https://t.me/Arian3462Ss" target="_blank" rel="noopener" aria-label="تلگرام"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 3.5 2.6 11c-1 .4-1 1.7.1 2l4.4 1.4 1.7 5.2c.3.9 1.4 1.1 2 .4l2.4-2.4 4.5 3.3c.8.6 1.9.1 2.1-.9L23.9 5c.2-1.1-.9-1.9-1.9-1.5ZM9.6 14.3l8.1-5-6.4 6.6-.3 3.3-1.4-4.9Z"/></svg></a>
       <a class="footer-soc" href="https://www.instagram.com/arian3462_blogger" target="_blank" rel="noopener" aria-label="اینستاگرام"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/></svg></a>
       <a class="footer-soc" href="https://www.aparat.com/Arian3462" target="_blank" rel="noopener" aria-label="آپارات"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.4 6.7L15.8 12l-5.2 3.3V8.7Z"/></svg></a>
+      <button class="footer-soc" id="shareBtn" aria-label="اشتراک‌گذاری صفحه">📤</button>
     </div>
   </footer>
 </main>
@@ -651,7 +860,8 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
         <select id="fSrv">
           <option>طراحی لوگو</option><option>لوگوموشن</option><option>طراحی سایت</option>
           <option>تایپ و صفحه‌آرایی ورد</option><option>پروژه هوش مصنوعی</option>
-          <option>مشاوره قطعات گیمینگ</option><option>پکیج شروع</option>
+          <option>مشاوره قطعات گیمینگ</option><option>ادیت ویدیو</option>
+          <option>ست شبکه‌های اجتماعی</option><option>پکیج شروع</option>
           <option>پکیج حرفه‌ای برندینگ</option><option>پکیج برند کامل + سایت</option>
           <option>سفارش پروژه</option>
         </select>
@@ -696,6 +906,38 @@ footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--border);displ
     <div class="lb-thumb" id="lbThumb"></div>
     <p class="modal-desc" id="lbD" style="line-height:2;font-size:.82rem"></p>
     <div class="modal-actions"><button class="btn btn-primary" id="lbOrder" style="flex:1">✍️ سفارش مشابه</button></div>
+  </div>
+</div>
+
+<!-- COMMAND PALETTE -->
+<div class="cp" id="cp" role="dialog" aria-modal="true" aria-label="جستجوی سریع">
+  <div class="cp-in">
+    <div class="cp-search"><span aria-hidden="true">🔍</span><input type="text" id="cpQ" placeholder="جستجو کن... (لوگو، اسمبل، تماس، سفارش)" aria-label="جستجوی سریع"><kbd>Esc</kbd></div>
+    <div class="cp-list" id="cpList"></div>
+    <div class="cp-foot"><span>حرکت: <kbd>↑</kbd> <kbd>↓</kbd></span><span>انتخاب: <kbd>Enter</kbd></span><span>باز کردن: <kbd>Ctrl</kbd>+<kbd>K</kbd></span></div>
+  </div>
+</div>
+
+<!-- SMART ASSISTANT -->
+<button class="chat-fab" id="chatFab" aria-label="گفتگو با دستیار هوشمند"><span class="cp-ring"></span><span>🤖</span><span>دستیار هوشمند</span></button>
+<div class="chat" id="chat" role="dialog" aria-label="دستیار هوشمند آرین">
+  <div class="chat-head">
+    <div class="chat-av" aria-hidden="true">🤖</div>
+    <div style="flex:1;min-width:0">
+      <div class="chat-title">دستیار هوشمند آرین</div>
+      <div class="chat-sub"><span class="dot-live"></span>آنلاین — همین الان جواب می‌ده</div>
+    </div>
+    <button class="x" id="chatClose" aria-label="بستن">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody" aria-live="polite"></div>
+  <div class="chat-actions">
+    <a href="#" data-open-order data-s="سفارش پروژه">📝 ثبت سفارش</a>
+    <a href="https://t.me/Arian3462Ss" target="_blank" rel="noopener">✈️ تلگرام</a>
+    <a href="tel:09924540781">📞 تماس</a>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chatQ" placeholder="سوالت رو بنویس..." aria-label="سوالت را بنویسید" autocomplete="off">
+    <button class="chat-send" id="chatSend" aria-label="ارسال">➤</button>
   </div>
 </div>
 
@@ -809,7 +1051,9 @@ var works=[
  {t:'سایت تک‌صفحه‌ای',d:'وب‌سایت معرفی خدمات، کاملاً ریسپانسیو با سرعت لود بالا و بهینه‌سازی پایه سئو.',c:'web',th:'t3',i:'💻',tag:'وب',s:'طراحی سایت'},
  {t:'صفحه‌آرایی پایان‌نامه',d:'تایپ و صفحه‌آرایی استاندارد اسناد آکادمیک شامل فهرست خودکار، شماره‌گذاری و قالب‌بندی یکدست.',c:'doc',th:'t4',i:'📄',tag:'اسناد',s:'تایپ و صفحه‌آرایی ورد'},
  {t:'اسمبل PC گیمینگ',d:'انتخاب قطعات متناسب با نیاز کاربر، بررسی سازگاری، تست پایداری و تحویل سیستم آماده.',c:'game',th:'t5',i:'🖥️',tag:'گیمینگ',s:'مشاوره قطعات گیمینگ'},
- {t:'ست هویت شبکه‌های اجتماعی',d:'کاور، آواتار و قالب پست هماهنگ با لوگو برای حضور حرفه‌ای در اینستاگرام و تلگرام.',c:'brand',th:'t6',i:'✨',tag:'برندینگ',s:'طراحی لوگو'}
+ {t:'ست هویت شبکه‌های اجتماعی',d:'کاور، آواتار و قالب پست هماهنگ با لوگو برای حضور حرفه‌ای در اینستاگرام و تلگرام.',c:'brand',th:'t6',i:'✨',tag:'برندینگ',s:'طراحی لوگو'},
+ {t:'ادیت ویدیو شبکه‌های اجتماعی',d:'برش، اصلاح رنگ، افکت‌های انتقال و زیرنویس چسبیده برای ریلز و ویدیوهای کوتاه.',c:'motion',th:'t1',i:'🎞️',tag:'موشن',s:'ادیت ویدیو'},
+ {t:'محتوای تصویری با هوش مصنوعی',d:'تولید تصاویر اختصاصی برای برند و کمپین‌ها با ابزارهای هوش مصنوعی و رتوش نهایی.',c:'brand',th:'t2',i:'🤖',tag:'برندینگ',s:'پروژه هوش مصنوعی'}
 ];
 var grid=$('workGrid');
 grid.innerHTML=works.map(function(w,k){
@@ -935,7 +1179,7 @@ $('mCopy').addEventListener('click',function(){
   $(id).addEventListener('input',function(){if(si===steps.length-1)$('prev').textContent=buildMsg()});
 });
 addEventListener('keydown',function(e){
-  if(e.key==='Escape'){closeOrder();closeLb();setDrawer(false)}
+  if(e.key==='Escape'){closeOrder();closeLb();closeChat();setDrawer(false)}
 });
 paint();
 
@@ -978,6 +1222,244 @@ if(fine&&!reduce){
     c.addEventListener('pointerleave',function(){c.style.transform=''});
   });
 }
+
+/* ---- v2: shamsi year ---- */
+(function(){var g=new Date(),gy=g.getFullYear(),gm=g.getMonth()+1,gd=g.getDate(),jy=gy-621;
+if(gm<3||(gm===3&&gd<21))jy-=1;
+var fyr=$('fyr');if(fyr)fyr.textContent=toFa(jy);})();
+
+/* ---- v2: faq search ---- */
+var faqQ=$('faqQ'),faqEls=[].slice.call(document.querySelectorAll('.faq details'));
+function faqFilter(){
+  var q=faqQ.value.trim().replace(/\s+/g,' ');
+  var shown=0;
+  faqEls.forEach(function(d){
+    var txt=(d.querySelector('summary').textContent+' '+d.querySelector('.ans').textContent).replace(/\s+/g,' ');
+    var hit=!q||txt.indexOf(q)>-1;
+    d.style.display=hit?'':'none';
+    if(hit){shown++;if(q)d.open=true}
+  });
+  $('faqCount').textContent=q?(shown?('نتیجه: '+toFa(shown)+' مورد'):'موردی پیدا نشد 😕'):(toFa(faqEls.length)+' سوال پرتکرار');
+}
+faqQ.addEventListener('input',faqFilter);faqFilter();
+
+/* ---- v2: share ---- */
+var shareBtn=$('shareBtn');
+if(shareBtn)shareBtn.addEventListener('click',function(){
+  var d={title:document.title,text:'آرین میرجوادی — طراحی لوگو، موشن، سایت و مشاوره گیمینگ',url:location.href};
+  if(navigator.share){navigator.share(d).catch(function(){})}
+  else if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(d.url);toast('لینک صفحه کپی شد ✅')}
+  else toast('مرورگرت از اشتراک‌گذاری پشتیبانی نمی‌کنه');
+});
+
+/* ---- v2: command palette ---- */
+var CP_ITEMS=[
+ {i:'🎨',t:'طراحی لوگو',k:'سفارش لوگو برندینگ هویت بصری',a:function(){openOrder('طراحی لوگو')}},
+ {i:'🎬',t:'لوگوموشن',k:'موشن انیمیشن اینترو ویدیو',a:function(){openOrder('لوگوموشن')}},
+ {i:'💻',t:'طراحی سایت',k:'وب سایت ریسپانسیو مدرن',a:function(){openOrder('طراحی سایت')}},
+ {i:'📄',t:'ورد و تایپ',k:'صفحه‌آرایی پایان‌نامه سند آکادمیک',a:function(){openOrder('تایپ و صفحه‌آرایی ورد')}},
+ {i:'🤖',t:'پروژه هوش مصنوعی',k:'ai تولید محتوا تصویر',a:function(){openOrder('پروژه هوش مصنوعی')}},
+ {i:'🕹️',t:'مشاوره قطعات گیمینگ',k:'گیمینگ اسمبل قطعات پردازنده کارت گرافیک',a:function(){openOrder('مشاوره قطعات گیمینگ')}},
+ {i:'🎞️',t:'ادیت ویدیو',k:'ویدیو برش زیرنویس رنگ',a:function(){openOrder('ادیت ویدیو')}},
+ {i:'📱',t:'ست شبکه‌های اجتماعی',k:'اینستاگرام کاور پست استوری',a:function(){openOrder('ست شبکه‌های اجتماعی')}},
+ {i:'⚙',t:'اسمبل هوشمند PC',k:'بودجه ترکیب قطعات گیمینگ بیس',a:function(){location.hash='#pcbuilder'}},
+ {i:'👤',t:'درباره من',k:'آرین میرجوادی کیست بیو',a:function(){location.hash='#about'}},
+ {i:'✨',t:'خدمات',k:'همه خدمات فهرست',a:function(){location.hash='#services'}},
+ {i:'🖼️',t:'نمونه‌کارها',k:'پورتفولیو کارها پروژه',a:function(){location.hash='#work'}},
+ {i:'🎁',t:'پکیج‌ها',k:'قیمت تعرفه بسته شروع حرفه‌ای برند',a:function(){location.hash='#packages'}},
+ {i:'⭐',t:'چرا من؟',k:'مزیت اعتماد کیفیت ضمانت',a:function(){location.hash='#why'}},
+ {i:'❓',t:'سوالات متداول',k:'سوال جواب فاق گیری',a:function(){location.hash='#faq'}},
+ {i:'🤖',t:'گفتگو با دستیار هوشمند',k:'چت بات پرسش جواب هوش مصنوعی سوال',a:function(){chatOpen()}},
+ {i:'✈️',t:'گفتگو در تلگرام',k:'تماس پیام چت تلگرام',a:function(){open('https://t.me/'+TG,'_blank','noopener')}},
+ {i:'📞',t:'تماس تلفنی',k:'شماره موبایل زنگ',a:function(){location.href='tel:09924540781'}},
+ {dyn:true,t:'تغییر تم روشن/تاریک',k:'تم دارک لایت شب روز',a:function(){themeBtn.click()}},
+ {i:'📋',t:'کپی شماره تماس',k:'شماره موبایل کپی',a:function(){if(navigator.clipboard)navigator.clipboard.writeText('09914225154');toast('شماره کپی شد ✅')}}
+];
+var cp=$('cp'),cpQ=$('cpQ'),cpList=$('cpList'),cpIdx=0,cpCur=[];
+function cpPaint(){
+  var q=cpQ.value.trim();
+  cpCur=CP_ITEMS.filter(function(x){return !q||(x.t+' '+x.k).indexOf(q)>-1});
+  if(!q)cpCur=CP_ITEMS.slice();
+  if(cpIdx>=cpCur.length)cpIdx=Math.max(0,cpCur.length-1);
+  cpList.innerHTML=cpCur.length?cpCur.map(function(x,i){
+    var ic=x.dyn?(root.dataset.theme==='dark'?'☀️':'🌙'):x.i;
+    return '<button class="cp-item'+(i===cpIdx?' on':'')+'" data-i="'+i+'"><span class="ci">'+ic+'</span><span>'+x.t+'</span><small>'+(i===cpIdx?'Enter':'')+'</small></button>';
+  }).join(''):'<div class="cp-empty">چیزی پیدا نشد — کلمه‌ی دیگه‌ای امتحان کن</div>';
+}
+function cpScroll(){var on=cpList.querySelector('.cp-item.on');if(on)on.scrollIntoView({block:'nearest'})}
+function cpOpen(){cp.classList.add('open');cpQ.value='';cpIdx=0;cpPaint();setTimeout(function(){cpQ.focus()},40);body.style.overflow='hidden'}
+function cpClose(){cp.classList.remove('open');body.style.overflow=''}
+function cpRun(){var x=cpCur[cpIdx];if(!x)return;cpClose();x.a()}
+$('cpBtn').addEventListener('click',cpOpen);
+cp.addEventListener('click',function(e){if(e.target===cp)cpClose()});
+cpQ.addEventListener('input',function(){cpIdx=0;cpPaint()});
+cpList.addEventListener('click',function(e){var b=e.target.closest('.cp-item');if(b){cpIdx=+b.dataset.i;cpRun()}});
+addEventListener('keydown',function(e){
+  if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();cp.classList.contains('open')?cpClose():cpOpen();return}
+  if(!cp.classList.contains('open'))return;
+  if(e.key==='Escape'){cpClose()}
+  else if(e.key==='ArrowDown'){e.preventDefault();cpIdx=Math.min(cpCur.length-1,cpIdx+1);cpPaint();cpScroll()}
+  else if(e.key==='ArrowUp'){e.preventDefault();cpIdx=Math.max(0,cpIdx-1);cpPaint();cpScroll()}
+  else if(e.key==='Enter'){e.preventDefault();cpRun()}
+});
+cpPaint();
+
+/* ---- v2: cursor + spotlight ---- */
+if(fine&&!reduce){
+  var curD=document.createElement('div'),curR=document.createElement('div');
+  curD.id='curD';curR.id='curR';body.appendChild(curD);body.appendChild(curR);
+  var cx2=0,cy2=0,rx=0,ry=0,raf2=null,seen=false;
+  addEventListener('pointermove',function(e){
+    if(!seen){seen=true;rx=e.clientX;ry=e.clientY;body.classList.add('cur-on')}
+    cx2=e.clientX;cy2=e.clientY;curD.style.left=cx2+'px';curD.style.top=cy2+'px';
+    if(!raf2)raf2=requestAnimationFrame(function(){
+      rx+=(cx2-rx)*.18;ry+=(cy2-ry)*.18;
+      curR.style.left=rx+'px';curR.style.top=ry+'px';
+      raf2=null;
+    });
+    document.documentElement.style.setProperty('--sx',(cx2/innerWidth*100)+'%');
+    document.documentElement.style.setProperty('--sy',(cy2/innerHeight*100)+'%');
+  },{passive:true});
+  addEventListener('pointerover',function(e){
+    var t=e.target.closest('a,button,.work-card,input,textarea,select,summary,label');
+    curR.classList.toggle('grow',!!t);
+  });
+  document.addEventListener('mouseleave',function(){body.classList.remove('cur-on')});
+  document.addEventListener('mouseenter',function(){body.classList.add('cur-on')});
+}
+
+/* ---- v2: orb tilt ---- */
+if(fine&&!reduce){
+  var orbW=document.querySelector('.orb-wrap'),oq=null;
+  if(orbW)addEventListener('pointermove',function(e){
+    if(oq)return;oq=requestAnimationFrame(function(){
+      var cx3=innerWidth/2,cy3=innerHeight*.4;
+      orbW.style.transform='translate('+((e.clientX-cx3)/innerWidth*14)+'px,'+((e.clientY-cy3)/innerHeight*10)+'px)';
+      oq=null;
+    });
+  },{passive:true});
+}
+
+/* ---- v2: smart pc builder ---- */
+var TIERS={
+ entry:{ic:'🧩',n:'استارتر هوشمند',r:'مناسب کارهای روزمره و گیم سبک',b:[25,55],s:{cpu:'Core i3 / Ryzen 3 نسل جدید',gpu:'گرافیک داخلی یا GT 1030',ram:'۱۶ گیگابایت DDR4',sto:'SSD NVMe ۵۰۰ گیگابایت',psu:'پاور ۵۵۰ وات برند',cse:'کیس خنک با فن اضافه'}},
+ mid:{ic:'⚡',n:'میدل رینج جذاب',r:'گیم Full HD روان و ادیت سبک',b:[55,140],s:{cpu:'Core i5 / Ryzen 5',gpu:'RTX 3050 / RX 6600',ram:'۳۲ گیگابایت DDR4/DDR5',sto:'SSD NVMe یک ترابایت',psu:'پاور ۶۵۰-۷۵۰ وات برند',cse:'کیس با مدیریت کابل مناسب'}},
+ high:{ic:'🔥',n:'های‌اند شگفت‌انگیز',r:'گیم 2K/4K، رندر و استریم همزمان',b:[140,260],s:{cpu:'Core i7 / Ryzen 7',gpu:'RTX 4070 Super / RX 7800 XT',ram:'۳۲ گیگابایت DDR5 سریع',sto:'SSD NVMe ۲ ترابایت',psu:'پاور ۸۵۰ وات طلایی',cse:'کیس جریان هوای بالا + ۶ فن'}},
+ ultra:{ic:'👑',n:'اولترا بدون‌رقیب',r:'همه‌چیز در بالاترین تنظیمات، برای حرفه‌ای‌ها',b:[260,400],s:{cpu:'Core i9 / Ryzen 9',gpu:'RTX 4080 Super / RX 7900 XTX',ram:'۶۴ گیگابایت DDR5',sto:'SSD NVMe ۲+۲ ترابایت',psu:'پاور ۱۰۰۰ وات پلاتینیوم',cse:'کیس پریمیوم + خنک‌کننده AIO ۳۶۰'}}
+};
+function tierFor(b){return b<TIERS.mid.b[0]?TIERS.entry:b<TIERS.high.b[0]?TIERS.mid:b<TIERS.ultra.b[0]?TIERS.high:TIERS.ultra}
+function tierKey(t){for(var k in TIERS)if(TIERS[k]===t)return k}
+var USE={game:'گیمینگ',edit:'ادیت و استریم',office:'اداری و روزمره'};
+var pcbRange=$('pcbRange'),pcbVal=$('pcbVal'),pcbUse=$('pcbUse'),pcbOut=$('pcbOut');
+var use='game',lastTier='';
+function pcbRender(){
+  var b=+pcbRange.value,t=tierFor(b),k=tierKey(t);
+  pcbVal.textContent=toFa(b)+' میلیون تومان';
+  document.querySelectorAll('.pbtn').forEach(function(x){x.style.color=(+x.dataset.b===b)?'var(--acc)':''});
+  var hint=use==='edit'?' • تمرکز روی CPU و رم':use==='office'?' • تمرکز روی سرعت و سکوت':' • تمرکز روی کارت گرافیک';
+  if(k!==lastTier||true){
+    var h='<div class="tier-head"><div class="tier-ic">'+t.ic+'</div><div><div class="tier-name">'+t.n+'</div><div class="tier-res">'+t.r+hint+'</div></div></div>';
+    h+='<div class="spec"><span>CPU</span><b>'+t.s.cpu+'</b></div>';
+    h+='<div class="spec"><span>GPU</span><b>'+t.s.gpu+'</b></div>';
+    h+='<div class="spec"><span>RAM</span><b>'+t.s.ram+'</b></div>';
+    h+='<div class="spec"><span>Storage</span><b>'+t.s.sto+'</b></div>';
+    h+='<div class="spec"><span>Power</span><b>'+t.s.psu+'</b></div>';
+    h+='<div class="spec"><span>Case</span><b>'+t.s.cse+'</b></div>';
+    h+='<p class="pcb-note">💡 این ترکیب یک پیشنهاد منطقی برای شروعه؛ قیمت‌ها لحظه‌ای تغییر می‌کنن. برای لیست دقیق با قیمت روز، در تلگرام پیام بده.</p>';
+    h+='<button class="btn btn-primary" style="width:100%;margin-top:14px" data-open-order data-s="مشاوره قطعات گیمینگ">✈️ دریافت لیست دقیق در تلگرام</button>';
+    var fade=k!==lastTier;
+    pcbOut.innerHTML=h;
+    if(fade&&!reduce){pcbOut.style.animation='none';void pcbOut.offsetWidth;pcbOut.style.animation='fadeUp .4s cubic-bezier(.4,0,.2,1)'}
+    lastTier=k;
+  }
+}
+pcbRange.addEventListener('input',pcbRender);
+document.querySelectorAll('.pbtn').forEach(function(x){x.addEventListener('click',function(){pcbRange.value=x.dataset.b;pcbRender()})});
+pcbUse.addEventListener('click',function(e){
+  var u=e.target.closest('.ubtn');if(!u)return;
+  use=u.dataset.u;
+  pcbUse.querySelectorAll('.ubtn').forEach(function(y){y.classList.toggle('on',y===u)});
+  pcbRender();
+});
+pcbRender();
+
+/* ---- v3: smart assistant (local & offline) ---- */
+var chatEl=$('chat'),chatFab=$('chatFab'),chatBody=$('chatBody'),chatIn=$('chatQ'),chatStarted=false;
+function closeChat(){chatEl.classList.remove('open')}
+function chatOpen(){
+  chatEl.classList.add('open');chatFab.classList.add('seen');
+  setTimeout(function(){chatIn.focus()},80);
+  if(!chatStarted){chatStarted=true;
+    botSay('سلام! 👋 من دستیار هوشمند آرین هستم.\nدرباره خدمات، قیمت‌ها، زمان تحویل، اسمبل PC گیمینگ و راه‌های ارتباطی ازم بپرس — سریع و شفاف جواب می‌دم.',null,['خدمات چیه؟','قیمت‌ها چنده؟','ساخت PC گیمینگ','راه‌های تماس']);
+  }
+}
+function escT(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function addMsg(who,html){var d=document.createElement('div');d.className='msg '+who;d.innerHTML=html;chatBody.appendChild(d);chatBody.scrollTop=chatBody.scrollHeight;return d}
+function normT(s){return String(s).replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/[ًٌٍَُِّْ]/g,'').replace(/\u200c/g,' ').replace(/\s+/g,' ').trim().toLowerCase()}
+var KB=[
+ {k:['سلام','درود','hi','hello','وقت بخیر','صبح بخیر','شب بخیر','خوبی'],r:'سلام! 🙂 خوبم، ممنون!\nهر سوالی درباره خدمات و پروژه‌ها داری بپرس.',c:['خدمات چیه؟','قیمت‌ها چنده؟']},
+ {k:['خدمت','سرویس','چه کار','چیکار','کار می‌کنی','کارهایی','مهارت','تخصص'],r:'این‌ها خدمات اصلیه:\n\n🎨 طراحی لوگو — هویت بصری خاص\n🎬 لوگوموشن — انیمیشن برند\n💻 طراحی سایت — مدرن و ریسپانسیو\n📄 تایپ و صفحه‌آرایی ورد\n🤖 پروژه هوش مصنوعی\n🕹️ مشاوره و اسمبل PC گیمینگ\n🎞️ ادیت ویدیو\n📱 ست شبکه‌های اجتماعی\n\nدوست داری درباره کدوم بیشتر بدونی؟',c:['قیمت‌ها چنده؟','زمان تحویل چقدره؟']},
+ {k:['قیمت','تعرفه','هزینه','چند می‌گیره','چنده','پول','استعلام'],r:'قیمت دقیق به نوع و حجم کار بستگی داره. پکیج‌های آماده:\n\n🥉 شروع — ۱ طرح لوگو + ۲ نوبت بازبینی\n🥇 حرفه‌ای (پرطرفدار) — ۳ کانسپت + وکتور + لوگوموشن هدیه\n💎 برند کامل — هویت کامل + وب‌سایت + ۱ ماه پشتیبانی\n\nمشاوره‌ی اولیه رایگانه ✅ برای استعلام دقیق، سفارش رو ثبت کن تا سریع قیمت بدم.',c:['ثبت سفارش','ساخت PC گیمینگ'],a:'order'},
+ {k:['زمان','تحویل','چند روز','چقدر طول','فوری','عجله'],r:'⏱ زمان تحویل تقریبی:\n\n• لوگو: ۲ تا ۴ روز\n• لوگوموشن: ۳ تا ۵ روز\n• سایت: از ۵ روز (بسته به تعداد صفحات)\n• ورد و صفحه‌آرایی: توافقی\n\nسفارش فوری هم در صورت خالی بودن ظرفیت پذیرفته می‌شه ⚡',c:['ثبت سفارش'],a:'order'},
+ {k:['بازبینی','اصلاح','ویرایش','تغییرات','نوبت'],r:'بازبینی تا رسیدن به نتیجه‌ی مورد قبول انجام می‌شه — در پکیج حرفه‌ای و برند کامل بدون محدودیت منطقی 🔧\nفقط تغییر کامل مسیر پروژه جداگانه هماهنگ می‌شه.'},
+ {k:['فایل','فرمت','خروجی','سورس','وکتور'],r:'فایل‌های نهایی که تحویل می‌گیری:\n\n• لوگو: وکتور (AI/SVG/PDF) + PNG شفاف\n• لوگوموشن: MP4/MOV باکیفیت\n• سایت: سورس کامل + راه‌اندازی\n• ورد: فایل نهایی + PDF\n\nهمه از طریق تلگرام یا لینک دانلود ارسال می‌شه 📦'},
+ {k:['پشتیبانی','گارانتی','بعد از تحویل','ضمانت'],r:'بله ✅ بعد از تحویل هم پشتیبانی داری؛ رفع اشکال و تغییرات جزئی بدون دردسر انجام می‌شه.\nدر پکیج برند کامل، ۱ ماه پشتیبانی کامل رایگانه 🛠️'},
+ {k:['سایت','وب سایت','وبسایت','ریسپانسیو'],r:'سایت‌ها مدرن، سبک و کاملاً ریسپانسیو طراحی می‌شن — مثل همین صفحه 😉\nبهینه‌سازی سرعت و سئو پایه هم انجام می‌شه.\nقیمت و زمان بسته به تعداد صفحات متغیره؛ برای برآورد دقیق سفارش ثبت کن.',c:['ثبت سفارش'],a:'order'},
+ {k:['لوگو','هویت','برندینگ','موشن','لوگوموشن'],r:'لوگو از صفر و بدون قالب آماده طراحی می‌شه — کاملاً منطبق با هدف و سلیقه‌ت 🎨\nتحویل ۲ تا ۴ روزه + فایل وکتور و PNG شفاف.\nلوگوموشن هم ۳ تا ۵ روزه آماده می‌شه و تو پکیج حرفه‌ای می‌تونی به‌صورت هدیه بگیریش 🎁',c:['قیمت‌ها چنده؟','ثبت سفارش'],a:'order'},
+ {k:['هوش مصنوعی','ai','تولید محتوا'],r:'🤖 خدمت «پروژه هوش مصنوعی» شامل تولید محتوا و تصویر با ابزارهای AI و رتوش نهاییه — برای پست‌ها، کمپین‌ها و محتوای خلاقانه.\nجزئیات پروژه‌ت رو بگو تا امکان‌سنجی کنم.',c:['ثبت سفارش'],a:'order'},
+ {k:['گیمینگ','گیم','کامپیوتر','سیستم','اسمبل','pc','قطعه','پردازنده','کارت گرافیک','گرافیک','بازی','بودجه','رم','دستگاه'],r:'برای کامپیوتر گیمینگ، از ابزار «اسمبل هوشمند» همین صفحه استفاده کن ⚙\nبودجه‌ت رو روی اسلایدر بذار و کاربردت رو انتخاب کن تا ترکیب پیشنهادی CPU/GPU/رم رو ببینی.\n\nبرای بررسی دقیق با قیمت روز، در تلگرام پیام بده — مشاوره اولیه رایگانه ✅',c:['اسمبل هوشمند','راه‌های تماس'],a:'pcb'},
+ {k:['سفارش','ثبت','شروع کنم','فرم'],r:'ثبت سفارش ۳ مرحله‌ی ساده داره:\n\n۱. دکمه «ثبت سفارش» رو بزن\n۲. خدمت، حجم و زمان تحویل رو انتخاب کن\n۳. پیام آماده به تلگرام من ارسال می‌شه\n\nمعمولاً در کمتر از ۲۴ ساعت جواب می‌گیری ⚡',c:['ورود به فرم سفارش'],a:'order'},
+ {k:['تماس','شماره','موبایل','تلگرام','ایمیل','راه ارتباطی','آیدی','اینستاگرام','آپارات'],r:'راه‌های ارتباطی مستقیم:\n\n✈️ تلگرام: @Arian3462Ss (سریع‌ترین راه)\n📱 تماس: 09924540781\n📷 اینستاگرام: arian3462_blogger\n🎬 آپارات: Arian3462',c:['گفتگو در تلگرام'],a:'tg'},
+ {k:['کی هستی','کیه','درباره','معرفی'],r:'آرین میرجوادی — طراح دیجیتال و علاقه‌مند به دنیای گیمینگ 🎮\nکارش ترکیبیه از هویت بصری (لوگو و موشن)، طراحی سایت مدرن و مشاوره تخصصی قطعات گیمینگ.\nهر پروژه از صفر و بدون قالب آماده طراحی می‌شه.',c:['خدمات چیه؟','نمونه کارها']},
+ {k:['نمونه','پورتفولیو','کارهای قبلی'],r:'چند نمونه در بخش «نمونه‌کار» همین صفحه هست — از لوگوی تیم ایسپورت تا اسمبل PC گیمینگ 🖼️\nبرای دیدن پورتفولیوی کامل، در تلگرام درخواست بده.',c:['نمونه کارها','گفتگو در تلگرام'],a:'work'},
+ {k:['ممنون','مرسی','دمت گرم','تشکر','خداحافظ','بای','فعلا'],r:'خواهش می‌کنم! 🙏 هر وقت سوال داشتی همینجام.\nروزت بخیر و موفق باشی ✨'},
+ {k:['دستیار','بات','ربات','تو کی'],r:'من دستیار هوشمند همین سایت هستم 🤖\nسوال‌های پرتکرار رو همین‌جا و آنی جواب می‌دم و برای موارد دقیق‌تر، مسیرت رو به خود آرین می‌دم!'}
+];
+function botSay(text,chips,act){
+  var t=document.createElement('div');t.className='typing';t.innerHTML='<i></i><i></i><i></i>';
+  chatBody.appendChild(t);chatBody.scrollTop=chatBody.scrollHeight;
+  setTimeout(function(){
+    t.remove();
+    addMsg('bot',escT(text).replace(/\n/g,'<br>'));
+    if(chips&&chips.length){
+      var c=document.createElement('div');c.className='chips';
+      chips.forEach(function(x){var b=document.createElement('button');b.className='qchip';b.type='button';b.textContent=x;b.dataset.q=x;c.appendChild(b)});
+      chatBody.appendChild(c);
+    }
+    if(act){
+      var map={order:['📝 ورود به فرم سفارش','order'],pcb:['⚙ اسمبل هوشمند','pcb'],tg:['✈️ گفتگو در تلگرام','tg'],work:['🖼️ دیدن نمونه‌کارها','work']};
+      if(map[act]){var c2=document.createElement('div');c2.className='chips';var b2=document.createElement('button');b2.className='qchip';b2.type='button';b2.textContent=map[act][0];b2.dataset.act=map[act][1];c2.appendChild(b2);chatBody.appendChild(c2)}
+    }
+    chatBody.scrollTop=chatBody.scrollHeight;
+  },500+Math.min(900,text.length*4));
+}
+function userSend(v){
+  var txt=String(v!==undefined?v:chatIn.value).trim();if(!txt)return;
+  addMsg('user',escT(txt));chatIn.value='';
+  var n=normT(txt),best=null,bs=0;
+  KB.forEach(function(x){
+    var sc=0;x.k.forEach(function(k){if(n.indexOf(normT(k))>-1)sc+=k.length});
+    if(sc>bs){bs=sc;best=x}
+  });
+  if(best)botSay(best.r,best.c,best.a);
+  else botSay('این یکی رو دقیق متوجه نشدم 🤔 هنوز دارم یاد می‌گیرم!\nمی‌تونی از پیشنهادها انتخاب کنی یا سوالت رو مستقیم از خود آرین در تلگرام بپرسی — خیلی سریع جواب می‌ده.',['خدمات چیه؟','قیمت‌ها چنده؟','راه‌های تماس'],'tg');
+}
+chatFab.addEventListener('click',function(){chatEl.classList.contains('open')?closeChat():chatOpen()});
+$('chatClose').addEventListener('click',closeChat);
+chatSend.addEventListener('click',function(){userSend()});
+chatIn.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();userSend()}});
+chatBody.addEventListener('click',function(e){
+  var q=e.target.closest('.qchip');if(!q)return;
+  if(q.dataset.act){
+    var a=q.dataset.act;
+    if(a==='order')openOrder('سفارش پروژه');
+    else if(a==='pcb')location.hash='#pcbuilder';
+    else if(a==='work')location.hash='#work';
+    else if(a==='tg')open('https://t.me/'+TG,'_blank','noopener');
+    return;
+  }
+  userSend(q.dataset.q);
+});
 
 /* ---- particles (light, theme-aware, pauses off-screen) ---- */
 if(!reduce&&!lowPower&&fine){
