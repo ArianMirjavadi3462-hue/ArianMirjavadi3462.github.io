@@ -1433,16 +1433,33 @@ function botSay(text,chips,act){
     chatBody.scrollTop=chatBody.scrollHeight;
   },500+Math.min(900,text.length*4));
 }
-function userSend(v){
+async function userSend(v){
   var txt=String(v!==undefined?v:chatIn.value).trim();if(!txt)return;
   addMsg('user',escT(txt));chatIn.value='';
-  var n=normT(txt),best=null,bs=0;
-  KB.forEach(function(x){
-    var sc=0;x.k.forEach(function(k){if(n.indexOf(normT(k))>-1)sc+=k.length});
-    if(sc>bs){bs=sc;best=x}
-  });
-  if(best)botSay(best.r,best.c,best.a);
-  else botSay('این یکی رو دقیق متوجه نشدم 🤔 هنوز دارم یاد می‌گیرم!\nمی‌تونی از پیشنهادها انتخاب کنی یا سوالت رو مستقیم از خود آرین در تلگرام بپرسی — خیلی سریع جواب می‌ده.',['خدمات چیه؟','قیمت‌ها چنده؟','راه‌های تماس'],'tg');
+  var loading=document.createElement('div');loading.className='typing';loading.innerHTML='<i></i><i></i><i></i>';
+  chatBody.appendChild(loading);chatBody.scrollTop=chatBody.scrollHeight;
+  try{
+    var response=await fetch('https://cloud.activepieces.com/api/v1/webhooks/zq1pek8lx1GqOE9JcWWNR/sync',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({message:txt,question:txt})
+    });
+    if(!response.ok)throw new Error('Webhook HTTP '+response.status);
+    var data=await response.json();
+    var answer=data.answer||data.result||data.output||data.response;
+    if(answer&&typeof answer==='object')answer=answer.text||answer.answer||JSON.stringify(answer);
+    if(typeof answer!=='string'||!answer.trim())throw new Error('No answer field in webhook response');
+    loading.remove();
+    botSay(answer.trim(),null,null);
+  }catch(err){
+    loading.remove();
+    /* اگر وب‌هوک در دسترس نبود، پاسخ‌های محلی سایت همچنان کار می‌کنند. */
+    var n=normT(txt),best=null,bs=0;
+    KB.forEach(function(x){var sc=0;x.k.forEach(function(k){if(n.indexOf(normT(k))>-1)sc+=k.length});if(sc>bs){bs=sc;best=x}});
+    if(best)botSay(best.r,best.c,best.a);
+    else botSay('فعلاً اتصال دستیار هوش مصنوعی برقرار نشد. چند لحظه بعد دوباره امتحان کن یا از تلگرام پیام بده.',['راه‌های تماس'],'tg');
+    console.error('Activepieces webhook error:',err);
+  }
 }
 chatFab.addEventListener('click',function(){chatEl.classList.contains('open')?closeChat():chatOpen()});
 $('chatClose').addEventListener('click',closeChat);
